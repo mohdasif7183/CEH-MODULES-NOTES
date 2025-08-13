@@ -1,0 +1,108 @@
+MODULE 4. ENUMERATION 
+
+* Enumeration : Enumeration involves an attacker creating active connections with a target system and performing directed queries to gain more information about the target usernames, machine names, network resources, shares, and services from a system or network.
+
+
+1) NETBIOS :NetBIOS (Network Basic Input/Output System) is a protocol that allows computers to communicate over a local area network (LAN).  
+ - **Name Resolution:** Translates computer names to IP addresses.
+- **Resource Sharing:** Facilitates file and printer sharing.
+- **Compatibility:** Supports older systems and applications.
+
+### Ports Used by NetBIOS
+
+- **UDP 137:** Name Service
+- **UDP 138:** Datagram Service
+- **TCP 139:** Session Service
+
+The primary command for working with NetBIOS over TCP/IP in Windows is nbtstat. nbtstat -A <IP address> on linux nbtscan 192.168.1.0/24 These commands allow you to gather and display NetBIOS information on Windows and Kali Linux systems.
+
+
+2) What is SNMP?
+SNMP (Simple Network Management Protocol) is like a way for computers and network devices (like routers and switches) to talk to each other and share important information.
+
+### Ports Used by SNMP
+
+- **UDP 161:** For asking questions.
+- **UDP 162:** For sending alerts.
+
+### How SNMP Works
+
+**Components:**
+   - **Manager:** Like a teacher asking questions.
+   - **Agent:** Like a student answering the teacher.
+
+**Process:**
+   - The **manager** (teacher) asks the **agent** (student) a question using UDP port 161. For example, "What's your current temperature?"
+   - The **agent** (student) answers back with the temperature.
+   - If something important happens, the **agent** (student) sends an alert to the **manager** (teacher) using UDP port 162, like saying, "The temperature is too high!"  3) What is LDAP?
+
+3)LDAP (Lightweight Directory Access Protocol) is a protocol used to access and manage directory information services, like a phone book for network resources and users.
+
+### Port Used by LDAP
+
+- **TCP 389:** For standard LDAP communication.
+- **TCP 636:** For secure LDAP (LDAPS) communication.
+
+### How LDAP Works
+
+ **Components:**
+   - **Client:** Asks for information.
+   - **Server:** Stores and provides the information.
+
+ **Process:**
+   - The **client** sends a request to the **server** on port 389 (or 636 for secure communication).
+   - The **server** looks up the requested information in the directory.
+   - The **server** sends the information back to the **client**.
+
+### Example
+
+1. **Client:** A user logs into their computer and needs to authenticate.
+2. **Request:** The computer (client) sends a request to the LDAP server: "Is this username and password correct?"
+3. **Response:** The LDAP server checks its directory and responds: "Yes, the credentials are correct."
+4. **Access:** The user is granted access to the system.
+
+LDAP is used to manage and authenticate user access to various resources within a network, making it easier to keep everything organised and secure.
+
+
+4) What is NTP?
+NTP (Network Time Protocol) is used to synchronise the clocks of computers over a network.
+
+**Port Used:** UDP 123
+
+**Example:**
+- Your computer asks an NTP server: "What time is it?"
+- The NTP server responds with the current time.
+- Your computer adjusts its clock to match the server's time.
+
+5) What is NFS?
+NFS (Network File System) allows computers to share files over a network as if they were on the local disk.
+ 
+**Ports Used:** TCP/UDP 2049
+
+**Example:**
+- A client computer accesses a file stored on an NFS server.
+- The file appears and behaves as if it were on the client's local hard drive, allowing easy file sharing and access.
+
+These protocols help keep time accurate across systems (NTP) and enable file sharing over networks (NFS).
+
+
+6) What is SMTP?
+SMTP (Simple Mail Transfer Protocol) is used to send emails.
+
+**Ports Used:** TCP 25, 465 (secure), 587 (secure)
+
+**Example:**
+- Your email client sends an email to the SMTP server on port 25.
+- The SMTP server forwards the email to the recipient's email server.
+
+
+7) What is DNS?
+DNS (Domain Name System) translates domain names into IP addresses.
+
+**Ports Used:** UDP 53, TCP 53
+
+**Example:**
+- You type `www.example.com` in your browser.
+- The browser queries a DNS server on port 53.
+- The DNS server responds with the IP address for `www.example.com`.
+
