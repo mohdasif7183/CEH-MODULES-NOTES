@@ -1,0 +1,71 @@
+MODULE 10 DENIAL-OF-SERVICE
+
+* What is a DoS Attack?
+A DoS attack is when attackers overload a system to make it unavailable to users.
+
+* What is a DDoS Attack? 
+A DDoS attack is when multiple systems flood a target to crash or slow it down, causing a service outage
+
+* what are Botnets ?
+Botnets are networks of infected computers controlled remotely to launch large-scale attacks, like DDoS
+
+
+* Basic Categories of DoS/DDoS Attack Vectors?
+Volumetric Attacks: Overwhelm bandwidth with massive traffic.
+Protocol Attacks: Exploit network protocols to exhaust resources.
+Application Layer Attacks: Target application-specific functions to disrupt services
+
+
+* what is UDP Flood Attack ?
+A UDP flood attack sends large volumes of UDP packets to overload a target’s network, causing a slowdown or crash.
+
+* what is ICMP Flood Attack ?
+An ICMP flood attack overwhelms a target by sending numerous ICMP (ping) requests, exhausting its resources and causing downtime.
+
+
+* what is Ping of Death and Smurf Attacks ?
+Ping of Death: Sends oversized ping packets to crash or freeze a target.
+Smurf Attack: Spoofs IP and broadcasts ICMP requests, causing network overload by amplifying responses.
+
+
+* what is Pulse Wave and Zero-Day DDoS Attacks ?
+Pulse Wave: Rapid, high-intensity bursts of traffic to exhaust defenses.
+Zero-Day DDoS: Exploits unknown vulnerabilities for an unexpected, hard-to-defend attack.
+
+
+* what is SYN Flood Attack ?
+An SYN flood attack sends many SYN requests to a server but never completes the handshake, overloading and freezing the server.
+
+
+* what is Fragmentation Attack ?
+A fragmentation attack splits malicious packets into smaller pieces to evade detection and disrupt a target’s network by overwhelming its ability to reassemble them.
+
+
+* what is Spoofed Session Flood Attack?
+A spoofed session flood attack sends fake session requests to a server, consuming resources and causing legitimate connections to fail.
+
+
+* what is HTTP GET/POST and Slowloris Attacks ?
+HTTP GET/POST Attack: Overloads a server by sending numerous GET or POST requests to exhaust resources.
+Slowloris Attack: Maintains many connections to a server by sending partial HTTP requests, keeping them open to consume server resources slowly.
+
+
+* what is Multi-Vector Attack ?
+A multi-vector attack combines different types of attacks, such as volumetric, protocol, and application layer attacks, to overwhelm and disrupt a target simultaneously.   * what is Peer-to-Peer Attack ?
+A peer-to-peer attack uses multiple interconnected devices to launch coordinated attacks on a target, leveraging their combined bandwidth and resources.   * Permanent Denial-of-Service Attack and TCP SACK Panic Attack  ? 
+Permanent Denial-of-Service (PDoS) Attack: Permanently damages a system or service, making recovery difficult or impossible.
+TCP SACK Panic Attack: Exploits the TCP Selective Acknowledgment (SACK) feature to overwhelm a target, causing it to crash or hang.
+
+
+* what is Distributed Reflection Denial-of-Service (DRDoS) Attack ?
+A Distributed Reflection Denial-of-Service (DRDoS) attack uses multiple compromised systems to send amplified responses to a target, overwhelming it with traffic.   * what is DDoS Extortion/Ransom DDoS (RDDoS) Attack ?
+A DDoS extortion or Ransom DDoS (RDDoS) attack threatens to launch a DDoS attack unless a ransom is paid, aiming to intimidate and coerce the target.
+
+
+* DoS/DDoS Attack Tools ?
+▪ XOIC (http://anonhacktivism.blogspot.com) ▪ HULK (https://github.com) ▪ Metasploit (https://www.metasploit.com) ▪ Tor’s Hammer (https://sourceforge.net) ▪ Slowloris (https://github.com) ▪ PyLoris (https://sourceforge.net)
+
+* what are the DoS/DDoS Countermeasure Strategies ?
+Absorbing the Attack : Use additional capacity to absorb the attack Requires preplanning and additional resources
+Degrading Services : Identify critical services to maintain functionality while stopping non-critical services
+Shutting Down the Services : Shut down all services until the attack has subsided 
