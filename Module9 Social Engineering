@@ -1,0 +1,35 @@
+MODULE 9 SOCIAL ENGINEERING 
+
+
+* What is Social Engineering? Factors that Make Companies Vulnerable to Attacks ?
+Social Engineering is manipulating people into revealing confidential information or performing actions that compromise security.
+Factors that Make Companies Vulnerable include poor security awareness, lack of training, weak policies, and high employee turnover.
+
+
+* what are the phases of Phases of a Social Engineering Attack?
+The phases of a social engineering attack are Research, Pretexting, Engagement, Exploitation, and Exit.
+
+
+* what are the Types of Social Engineering ?
+Types of Social Engineering include:
+Human-based: Impersonation, phishing, and baiting.
+Computer-based: Phishing emails, malicious software, and popup windows.
+Mobile-based: SMS phishing (smishing), malicious apps, and fake calls.
+
+* what are the phising tools, we can used?
+ShellPhish Source: https://github.com ▪ BLACKEYE (https://github.com) ▪ PhishX (https://github.com) ▪ Modlishka (https://github.com) ▪ Trape (https://github.com) ▪ Evilginx (https://github.com)
+
+* what are the Insider Threats/Insider Attacks ?
+Insider Threats/Insider Attacks are security breaches caused by employees, contractors, or trusted individuals misusing their access to harm an organization, either intentionally or accidentally. The types of insider threats are Malicious Insider, Negligent Insider, and Compromised Insider.
+
+* what is Impersonation on Social Networking Sites ?
+Impersonation on Social Networking Sites is when someone creates a fake profile or poses as another person to deceive, manipulate, or gain unauthorized access to information.
+
+* what is Identity Theft ?
+Identity Theft is the act of stealing someone’s personal information, like name, social security number, or bank details, to commit fraud or gain financial benefits.
+
+* what are the counter measure tools for defend the system from phising email ? 
+Anti-Phishing Toolbar :   Netcraft Source: https://www.netcraft.com  , PhishTank Source: https://phishtank.com.
+
+* Name the social engineering tools ?
+Social Engineering Tools : Social Engineering Toolkit (SET) Source: https://www.trustedsec.com ▪ SpeedPhish Framework (SPF) (https://github.com) ▪ Gophish (https://getgophish.com) ▪ King Phisher (https://github.com) ▪ LUCY SECURITY (https://www.lucysecurity.com) ▪ MSI Simple Phish (https://microsolved.com)
