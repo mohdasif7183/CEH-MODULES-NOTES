@@ -1,0 +1,451 @@
+MODULE 6 : SYSTEM HACKING
+
+* SAM (Security Accounts Manager):
+- Stores user **credentials** (usernames & hashed passwords) in Windows.
+- Located in a **secure database** on your computer.
+- Contains **hashed** (scrambled) passwords, not plain text.
+- Vulnerable if accessed by hackers (they can try to crack the hashes). - The SAM (Security Accounts Manager) database is located in the following path in Windows: C:\Windows\System32\Config\SAM
+
+
+ * NTLM (New Technology LAN Manager):
+- **Old** method for authentication in Windows.
+- **Hashes the password** and sends it over the network **every time** you access a resource.
+- Can be vulnerable to **sniffing** and **replay attacks**.
+- Easier for hackers to capture and crack the password hash.
+
+ * Kerberos Authentication:
+- **Modern, secure** authentication method.
+- You log in **once** and get a **ticket** (no need to send your password each time).
+- Tickets are **encrypted** and valid for a set period.
+- Reduces the chance of a hacker sniffing and capturing your password.
+
+In short:
+- **SAM** stores user info, 
+- **NTLM** sends hashes repeatedly (less secure),
+- **Kerberos** uses one-time tickets (more secure).   * Here’s a breakdown of the **types of password attacks** you mentioned, simplified for easy understanding:
+
+### 1. **Non-Electronic Attacks** (Happening in real life, no tech needed)
+- **Shoulder Surfing**: Someone watches you type your password over your shoulder.
+- **Social Engineering**: Tricking people into giving their password (e.g., pretending to be tech support).
+- **Dumpster Diving**: Searching trash for written-down passwords or other sensitive info.
+
+### 2. **Active Online Attacks** (Attacker directly interacts with the system)
+- **Dictionary Attack**: Tries passwords from a pre-made list (like common words or phrases).
+- **Brute Force Attack**: Tries every possible combination of letters, numbers, and symbols.
+- **Rule-based Attack**: Focuses on likely password variations (like adding numbers or changing cases).
+- **Trojan/Spyware/Keyloggers**: Malicious software that secretly records your passwords as you type.
+- **Password Guessing/Spraying**: Tries commonly used passwords across many accounts (e.g., "123456").
+- **Hash Injection Attack/Mask Attack**: Injects a fake hash into the system to bypass password checks.
+- **Internal Monologue Attack**: Exploits the system’s internal processes to extract password hashes without user interaction.
+- **LLMNR/NBT-NS Poisoning**: Tricks the system into sending sensitive information (like password hashes) over the network.
+- **Cracking Kerberos Passwords**: Attempts to break the encrypted Kerberos tickets to get the password.
+
+### 3. **Passive Online Attacks** (Attacker listens or watches traffic without direct interaction)
+- **Wire Sniffing**: Attacker captures data traveling over a network to find passwords.
+- **Man-in-the-Middle Attack**: The attacker secretly intercepts and alters communication between two parties.
+- **Replay Attack**: The attacker captures login data and reuses it to trick the system into granting access.
+
+### 4. **Offline Attacks** (Attacker works on stolen password data offline)
+- **Rainbow Table Attack (Pre-Computed Hashes)**: Uses a pre-made list of hashed passwords to match and find the real password.
+- **Distributed Network Attack**: Uses multiple computers working together to break password hashes faster.
+
+In summary:
+- **Non-Electronic Attacks**: Real-world tricks to get your password.
+- **Active Online Attacks**: Direct attempts to crack passwords while you're online.
+- **Passive Online Attacks**: Eavesdropping on your online activity.
+- **Offline Attacks**: Using stolen data to crack passwords without needing to interact with the system.   * Vulnerability Exploitation : Vulnerability Exploitation is when hackers find weaknesses (vulnerabilities) in a system and use them to break in, steal data, or cause harm.
+  ### 7 Steps of Vulnerability Exploitation:
+
+1. **Identify the Vulnerability**:
+   - **What it is**: Find a weakness in the system.
+   - **What they do**: Scan for software bugs, unpatched systems, or security flaws.
+
+2. **Determine the Capability of the Vulnerability**:
+   - **What it is**: Understand what the vulnerability can do.
+   - **What they do**: Check if the weakness allows access, data theft, or damage.
+
+3. **Determine the Risk Associated with the Vulnerability**:
+   - **What it is**: Assess how dangerous the vulnerability is.
+   - **What they do**: Decide if the vulnerability can lead to a major security breach or is low-risk.
+
+4. **Develop the Exploit**:
+   - **What it is**: Create a tool or method to take advantage of the vulnerability.
+   - **What they do**: Write code or use hacking tools to attack the weak point.
+
+5. **Generate and Deliver the Payload**:
+   - **What it is**: Create a malicious code (payload) to carry out the attack.
+   - **What they do**: Prepare the code that will steal data or give access once delivered.
+
+6. **Select the Method for Delivering – Local or Remote**:
+   - **What it is**: Choose how to send the exploit to the system.
+   - **What they do**: 
+     - **Local**: Direct access to the target device (e.g., USB).
+     - **Remote**: Over the internet (e.g., phishing emails, malware).
+
+7. **Gain Remote Access**:
+   - **What it is**: Get control of the system from a distance.
+   - **What they do**: After exploiting the vulnerability, hackers can control the system remotely.
+
+ * Exploit Sites : Attackers can use various exploit sites such as Exploit Database, VulDB, etc. to discover vulnerabilities and download or develop exploits to perform remote exploitation on the target system. These sites include details of the latest vulnerabilities and exploits. 
+  * Buffer Overflow
+- **Definition**: A vulnerability where a program writes more data to a buffer than it can hold.
+- **Result**: Can overwrite adjacent memory, leading to unpredictable behavior or security issues.
+
+1. Stack-Based Buffer Overflow
+- **Definition**: Occurs in the stack memory.
+- **How It Works**:
+  - **Data on Stack Segment**: Local variables stored here.
+  - **Return Address**: Points to the instruction to return after function execution.
+  - **More Data**: Additional local variables or function parameters.
+  - **End of Stack**: Indicates the limit of stack memory.
+  
+- **After Attack**:
+  - Attackers overwrite the return address.
+  - When the function returns, it may execute malicious code instead.
+
+Heap-Based Buffer Overflow
+- **Definition**: Occurs in the heap memory (used for dynamic memory allocation).
+- **How It Works**:
+  - Overwrites dynamic object pointers.
+  - Can alter the memory management data structures.
+  
+- **Consequences**:
+  - Redirects execution flow.
+  - Allows attackers to control program behaviour or access sensitive data.
+ 3. Windows Buffer Overflow Exploitation Steps with Example
+
+**Example Scenario**: A simple game crashes when too much data is sent, and you want to exploit this vulnerability.
+
+i). **Perform Spiking**:
+   - **Action**: Send a long string of data to the game.
+   - **Example**: Imagine filling a cup with water by pouring in an entire pitcher. The cup overflows when it can't hold any more.
+
+ii). **Perform Fuzzing**:
+   - **Action**: Use random strings of data to see what makes the game crash.
+   - **Example**: Like trying different types of food in a blender to see which one causes it to stop working or break.
+
+iii). **Identify the Offset**:
+   - **Action**: Determine how many characters you need to send before hitting the important return address.
+   - **Example**: Measuring how far you need to push a toy car until it hits a wall. You find out you need to push it 10 inches.
+
+iv). **Overwrite the EIP Register**:
+   - **Action**: Change the return address to point to your own code.
+   - **Example**: Imagine you change the address on a letter to make it go to your friend’s house instead of yours. Now, when the letter arrives, it leads to your friend's instead.
+
+v). **Identify Bad Characters**:
+   - **Action**: Test for characters that might break your code and avoid using them.
+   - **Example**: If the blender stops working when you put in fruit with pits, you learn not to use those fruits. 
+
+vi). **Identify the Right Module**:
+   - **Action**: Choose the specific program (game) to exploit.
+   - **Example**: Like selecting the right video game you want to play instead of just picking any random one.
+
+vii). **Generate Shellcode**:
+   - **Action**: Create a small piece of code that will run your commands when executed.
+   - **Example**: Writing a quick note that says, "Open the secret door," so that when it’s read, the door opens automatically.
+
+viii). **Gain Root Access**:
+   - **Action**: Execute your shellcode to take control of the game.
+   - **Example**: Finally unlocking the door to your house, allowing you to enter and do whatever you want inside.
+
+### Summary of Steps with the Example
+- You send too much data → the game overflows like a full cup.
+- You try random data → like testing food in a blender.
+- You measure the data → finding the push distance for a toy car.
+- You change the game’s address → like rerouting a letter.
+- You avoid harmful characters → similar to not using fruits with pits.
+- You choose the game to exploit → selecting the right video game.
+- You write a command → creating a note for a secret door.
+- You execute your code → unlocking the door to take control.
+
+This step-by-step example helps illustrate how buffer overflow exploitation works in a simple and relatable way!
+
+
+4. Return-Oriented Programming (ROP) Attack Steps with Example
+
+**Example Scenario**: You want to play a fun game using existing toys in a room instead of a controller.
+
+i). **Using Existing Code**:
+   - **Action**: Identify useful parts of a program that already exist.
+   - **Example**: You look around the room and find different toys (like a toy car, soldier, and robot) that can help you play your game.
+
+ii). **Finding Gadgets**:
+   - **Action**: Locate specific instructions (gadgets) in the program that perform small tasks.
+   - **Example**: You discover the toy car can roll, the soldier can jump, and the robot can make sounds. Each toy has a specific action it can perform.
+
+iii). **Creating a Sequence**:
+   - **Action**: Arrange the gadgets in a way that they work together to accomplish a goal.
+   - **Example**: You plan to first roll the toy car to move, then use the soldier to jump, and finally have the robot make a sound. You line them up in the right order.
+
+iv). **Setting Up the Stack**:
+   - **Action**: Craft a sequence of addresses in memory to point to the gadgets.
+   - **Example**: You write down the order of toy actions on a piece of paper (e.g., toy car address, soldier address, robot address) so you know which toy to use next.
+
+v). **Executing the Plan**:
+   - **Action**: Trigger the sequence of gadgets to perform your desired action.
+   - **Example**: You push the toy car, which hits the soldier, causing it to jump, and then you activate the robot, making it sound off. Everything works together without needing the original controller.
+
+vi). **Achieving the Goal**:
+   - **Action**: Successfully execute your plan using the existing code (gadgets).
+   - **Example**: You create a fun game experience using your toys without needing any new toys or a controller. You play your game your way!
+
+### Summary of Steps with Example
+- **Identify toys** → You find existing toys in the room.
+- **Locate actions** → You discover what each toy can do.
+- **Arrange in order** → You create a sequence for the toys to work together.
+- **Write down the sequence** → You note the order to use the toys.
+- **Trigger the toys** → You push the car, and it makes the soldier jump and the robot sound off.
+- **Enjoy the game** → You have fun playing with your setup!
+
+This step-by-step example illustrates how ROP attacks work using existing code in a creative and relatable way!   * Exploit Chaining: Use multiple vulnerabilities together for a stronger attack.
+
+Process:
+Find multiple weaknesses.
+Use one exploit to trigger another.
+  * Privilege Escalation**: Gaining higher access rights than intended in a system.  
+  Example*: A regular user accessing admin features.
+
+- Horizontal Privilege Escalation**: Accessing another user’s data or functions at the same privilege level.  
+  Example*: User A viewing User B's private files without permission.
+
+- Vertical Privilege Escalation**: Moving from a lower privilege level to a higher one, gaining admin or root access.  
+  Example*: A guest user exploiting a flaw to become an admin user.   1. Privilege Escalation Using DLL Hijacking ( Definition) : A way for attackers to trick a program into using a fake version of a file it needs, allowing them to gain higher access.
+
+### Explanation with Example
+
+i). **What is a DLL?**:
+   - **Action**: A DLL (Dynamic Link Library) is like a tool that a program uses to do certain tasks.
+   - **Example**: Imagine a toy robot that needs batteries (DLL) to work.
+
+ii). **How DLL Hijacking Works**:
+   - **Action**: An attacker creates a fake DLL with harmful code and places it in the same folder as the program.
+   - **Example**: If someone swaps the robot's good batteries with faulty ones that make it act weird.
+
+iii). **The Program Gets Tricked**:
+   - **Action**: When the program runs, it accidentally uses the fake DLL instead of the real one.
+   - **Example**: The robot starts behaving strangely because it has the bad batteries inside.
+
+iv). **Gaining Higher Access**:
+   - **Action**: The attacker’s code in the fake DLL runs, giving them control over the program.
+   - **Example**: Now the robot can do things it wasn’t supposed to, like opening locked doors.
+
+### Summary
+- **DLL Hijacking**: Tricking a program into using a harmful fake file, allowing attackers to gain higher access like a toy using bad batteries.
+
+- - - - - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - 
+
+2. Privilege Escalation By Exploiting Vulnerabilities : Is gaining higher access rights in a system by taking advantage of flaws or weaknesses in software; for example, an attacker exploiting a bug in a program to gain admin access when they should only be a regular user. 
+
+- - - - - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - -  
+
+3.  Privilege Escalation Using Dylib Hijacking (Definition) : A method where attackers trick a program into using a fake file (dylib) instead of the real one, allowing them to gain higher access.
+
+### Explanation with Example
+
+i). **What is a Dylib?**:
+   - **Action**: A dylib (Dynamic Library) is like a tool that a program needs to do its job.
+   - **Example**: Think of it as a special toy that needs a specific battery to work.
+
+ii). **How Dylib Hijacking Works**:
+   - **Action**: An attacker makes a fake dylib with harmful code and puts it in the same spot as the program.
+   - **Example**: It’s like someone sneaking in bad batteries and swapping them with the good ones for your toy.
+
+iii). **The Program Gets Tricked**:
+   - **Action**: When the program starts, it accidentally uses the fake dylib instead of the real one.
+   - **Example**: The toy runs on bad batteries and starts acting strangely.
+
+iv). **Gaining Higher Access**:
+   - **Action**: The attacker’s harmful code in the fake dylib runs, giving them control over the program.
+   - **Example**: Now the toy can do things it shouldn’t, like turning on the lights in the house.
+
+### Summary
+- **Dylib Hijacking**: Tricking a program into using a harmful fake file, allowing attackers to gain higher access like a toy running on bad batteries. 
+
+- - - - - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - 
+
+*  Privilege Escalation using Spectre and Meltdown exploits : Privilege Escalation using Spectre and Meltdown exploits weaknesses in CPU design to access sensitive data, like an attacker stealing passwords by reading memory they shouldn't have access to.
+
+- - - - - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - 
+
+* Privilege Escalation using Named Pipe Impersonation is when an attacker tricks a program into thinking they're someone important, gaining higher access. 
+
+Example**: It’s like pretending to be the teacher by using the classroom intercom to give commands, even though you’re just a student.
+
+- - - - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - -  
+
+* Privilege Escalation by Exploiting Misconfigured Services is when an attacker takes advantage of a service set up wrong to gain more control.
+
+Example**: It’s like finding a door left unlocked in a house and using it to get into rooms you shouldn't be allowed in. 
+
+- - - - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - 
+
+* Pivoting and Relaying to Hack External Machines : - **Pivoting**: Using a compromised machine to attack other machines on the same network, acting as a stepping stone.  
+  *Example*: Sneaking into one house and using it to reach the others in the neighbourhood.
+
+- **Relaying**: Redirecting traffic from one compromised machine to another without direct access, often passing credentials.  
+  *Example*: Passing a secret note through one friend to another without talking to them directly.
+
+- - - - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - -  
+
+* Privilege Escalation using Misconfigured NFS happens when an attacker exploits wrongly set file-sharing permissions to gain more control.
+
+**Example**: It’s like finding a shared toy box that wasn't locked, so you take toys you're not supposed to play with.
+
+- - - - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - 
+
+* Privilege Escalation by Bypassing User Account Control (UAC) is when an attacker tricks Windows into running programs with higher privileges without asking for permission.
+
+**Example**: It’s like sneaking past a security guard who’s supposed to check everyone, but you find a way around without getting stopped. 
+
+- - - - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - -  
+
+* Executing Applications**: Running programs on a computer.  
+  *Example*: It’s like starting a video game on your console.
+
+- Keyloggers**: Software that secretly records what you type.  There are 2 types of key loggers software key logger and Hard ware key logger
+  *Example*: It’s like a friend writing down all your secret notes without you knowing.
+
+- Spyware**: Software that secretly gathers information about you.  
+  *Example*: It’s like someone watching you play and telling others what you do.
+
+- Backdoors**: Hidden ways for someone to access your computer without permission.  
+  *Example*: It’s like a secret entrance in a house that only bad guys know about.
+
+- Crackers**: People who break into computers or software to cause harm or steal.  
+  *Example*: It’s like a burglar who breaks into a house to take things. 
+
+- - - - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - -  
+
+* Remote Code Execution Techniques
+
+- Remote Code Execution**: Running code on another computer from afar without permission.  
+  *Example*: It’s like controlling someone else's toy robot from a distance without them knowing.
+
+- Exploitation for Client Execution**: Taking advantage of vulnerabilities in software that users run, like web browsers.  
+  *Example*: It’s like tricking a friend into opening a surprise box that explodes with confetti.
+
+- Service Execution**: Exploiting running services on a server to run malicious code.  
+  *Example*: It’s like sneaking into a party by pretending to be a friend of the host.
+
+- Windows Management Instrumentation (WMI)**: Using WMI to run commands remotely on Windows machines.  
+  *Example*: It’s like using a remote control to change the channel on a TV in another room.
+
+- Windows Remote Management (WinRM)**: A feature that allows remote management of Windows machines, often targeted for exploitation.  
+  *Example*: It’s like having a magic wand that lets you change things in someone else's house from far away. 
+
+- - - - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - 
+
+* What is a Rootkit? : A rootkit is a type of malicious software that allows someone to control a computer secretly, hiding its presence.
+
+Types of Rootkits:
+
+1. Hypervisor Level Rootkit**: Attacks the hypervisor to control virtual machines.  
+   Example*: It’s like a sneaky magician who takes over the main stage and controls all the other performers.
+
+2. Hardware/Firmware Rootkit**: Installs itself in hardware components, making it hard to detect.  
+   Example*: It’s like hiding a secret door inside a toy that only you know about.
+
+3. Kernel Level Rootkit**: Operates at the core of the operating system to control everything.  
+   Example*: It’s like being the boss of a factory and controlling all the workers without them knowing.
+
+4. Boot Loader Level Rootkit**: Loads before the operating system, hiding its presence during startup.  
+   Example*: It’s like sneaking into a party before anyone else gets there.
+
+5. Application Level/User Mode Rootkit**: Targets specific applications to manipulate their behavior.  
+   Example*: It’s like pretending to be a helper in a game, but secretly changing the rules to win.
+
+6. Library Level Rootkits**: Replaces standard libraries to manipulate programs.  
+   Example*: It’s like swapping out a book in a library with a fake one that tells different stories.
+
+How Rootkits Work : Rootkits hide their presence by modifying the operating system, making it difficult for users and security software to detect them.  
+*Example*: It’s like putting on a disguise so nobody recognizes you while you sneak around.  
+
+- - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - -- 
+
+* What is NTFS Data Stream? : NTFS Data Streams are hidden data stored alongside regular files on NTFS file systems, allowing multiple data streams for a single file.
+
+How to Create NTFS Streams 1. Command**: Use the command line to create a new stream.  
+   Example**: `echo "secret data" > file.txt:stream1`
+
+How Hackers Use NTFS Stream Manipulation : Hackers can hide malicious data in alternate data streams, making it difficult to detect.
+Example**: An attacker hides a virus in a stream of a seemingly harmless file, so when the file is opened, the virus activates without the user knowing. 
+
+- - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - --  
+
+* What is Steganography? : Steganography is the practice of hiding secret information within other, non-suspicious data.
+
+
+Classification of Steganography:
+
+1. Image Steganography**: Hiding data in images.  
+   Example*: Putting a secret message in the pixels of a picture.
+
+2. Document Steganography**: Hiding data in text documents.  
+   Example*: Using invisible text in a Word file to store secrets.
+
+3. Folder Steganography**: Hiding data within folders.  
+   *Example*: Creating a hidden folder that contains secret files.
+
+4. Video Steganography**: Hiding data in video files.  
+   Example*: Embedding a secret message in a video’s frames.
+
+5. Audio Steganography**: Hiding data in sound files.  
+   Example*: Concealing a message in the audio waves of a song.
+
+6. White Space Steganography**: Hiding data in spaces between words or lines.  
+   Example*: Using extra spaces in a text to store a secret code.
+
+7. Web Steganography**: Hiding data in websites or HTML.  
+   Example*: Embedding secret data in the HTML code of a webpage.
+
+8. Spam/Email Steganography**: Hiding data in spam emails.  
+   *Example*: Concealing a message in a junk email’s text.
+
+9. DVD-ROM Steganography**: Hiding data in DVD files.  
+   Example*: Storing secret files in the structure of a DVD.
+
+10. Natural Text Steganography**: Hiding data in natural language text.  
+    Example*: Using the first letter of each word in a sentence to form a secret message.
+
+11. Hidden OS Steganography**: Hiding data within an operating system.  
+    Example*: Concealing information in system files that aren’t easily seen.
+
+12. C++ Source-Code Steganography**: Hiding data in source code.  
+    Example*: Embedding a secret message in comments within C++ code.
+
+ - - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - -- 
+
+* Golden Ticket Attack : A Golden Ticket attack is when an attacker creates a fake authentication ticket to access any resource in a network.
+
+Example**: It’s like making a fake VIP pass that lets you enter any concert for free.
+
+- - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - -- 
+
+* Silver Ticket Attack : A Silver Ticket attack is when an attacker creates a fake ticket for a specific service, allowing access to that service only.
+Example**: It’s like making a fake ticket that lets you enter just the snack area at a fair, but not the whole fair. 
+
+- - - - - - - -  - - - - -  - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - -- 
+
+* What is Covering Tracks? : Covering tracks means hiding or removing evidence of malicious activities on a computer or network.
+
+ * Disabling Auditing: Auditpol : Disabling auditing with Auditpol stops the system from keeping track of certain activities, making it harder to detect intrusions.  
+Example*: It’s like turning off the security cameras so no one can see what you’re doing.
+
+ * Clearing Logs : Clearing logs means deleting records of actions performed on a system to hide what happened.  
+
+MacOS**: Use Terminal to clear logs.  
+Example*: `sudo rm /var/log/system.log` clears the system log.
+
+ Windows**: Use Event Viewer or Command Prompt.  
+ Example*: `wevtutil cl Application` clears the application logs.
+
+Linux**: Use Terminal to remove log files.  
+Example*: `sudo rm /var/log/syslog` deletes the syslog file.
+
+ * How to Cover Tracks in OS : Covering tracks in an OS involves deleting logs, hiding files, or using tools to erase evidence.   Example*: It’s like cleaning up a messy room so no one knows you were playing.
+
+* Deleting Files using Cipher.exe in Windows
+
+Using `Cipher.exe`, you can securely delete files so they can’t be recovered.  
+*Example*: It’s like using a magic eraser that makes sure no one can find your doodles after you erase them.  
+*Command*: `cipher /w:C:\path\to\folder` securely deletes files in that folder.  
