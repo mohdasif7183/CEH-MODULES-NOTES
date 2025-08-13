@@ -1,0 +1,188 @@
+MODULE 3. SCANNING  NETWORKING
+
+* Network scanning refers to a set of procedures used for identifying hosts, ports, and services in a network Network scanning is one of the components of intelligence gathering which can be used by an attacker to create a profile of the target organisation. To discover live hosts, IP address, and open ports of live hosts To discover operating systems and system architecture To discover services running on hosts To discover vulnerabilities in live hosts.  * OSI MODEL — Imagine you're sending a letter to a friend. The OSI model helps us understand how this process works, just like the different steps involved in mailing a letter.
+Physical Layer (Layer 1): This layer is like the envelope and paper you use for your letter. It deals with the physical connection between devices, like cables or Wi-Fi signals Physical layer the units is “ Bits”.  most common attack on this layer is  most common attack on this layer is sniffing 
+Data Link Layer (Layer 2): This layer is like the address on the envelope. It adds a sender and receiver address to your letter so it can be delivered to the right place for the Data layer the Units is “ Frames” most common attack on this layer is spoofing 
+Network Layer (Layer 3): This layer is like the postal service that figures out the best route for your letter to reach its destination. It deals with IP addresses and routing the units is “ Packets “ for the Data most common attack on this layer is man in the Middle attack 
+Transport Layer (Layer 4): This layer is like the post office that manages how your letter gets to its destination. It ensures that your letter arrives in the right order and can handle errors if any occur and Units for the data in it is “ SEGMENTS”  most common attack on this layer is Reconnaissance 
+Session Layer (Layer 5): This layer is like the conversation you're having with your friend. It sets up, manages, and ends communication sessions between two devices and the Units for the Data in it is “Data” most common attack on this layer is Hijacking 
+Presentation Layer (Layer 6): This layer is like translating your letter into a language your friend understands, or making sure it's in a format they can read. and the Units for the Data in it is “Data” most common attack on this layer is phishing 
+Application Layer (Layer 7): This layer is like the reason you're writing the letter, whether it's to share a story, ask a question, or send a greeting. It's the actual content of your communication. and the Units for the Data in it is “Data”  most common attack on this layer is exploitation.
+So, the OSI model helps us understand how data is sent from one device to another, breaking it down into different steps, just like mailing a letter!  You can remember this model easily by remembering this sentence “ (P)lease (D)o (N)ot (T)hrow (S)ausage (P)izza (A)way “ where first letter represent the layer starting letter. 
+￼
+ 
+* TCP (Transmission Control Protocol) is a standard that defines how to establish and maintain a network conversation through which application programs can exchange data. It ensures reliable, ordered, and error-checked delivery of data between devices.
+6 TCP Flags and Their Functions:
+SYN (Synchronise): Initiates a connection between two devices.
+ACK (Acknowledgment): Confirms the receipt of data packets.
+FIN (Finish): Gracefully terminates a connection.
+RST (Reset): Abruptly ends a connection due to an error or unexpected event.
+PSH (Push): Immediately delivers data to the application.
+URG (Urgent): Marks data as urgent, prioritising its delivery.
+
+
+TCP/IP Three-Way Handshake (Connection):
+SYN: The client sends a SYN (synchronise) packet to the server to initiate a connection.
+SYN-ACK: The server responds with a SYN-ACK (synchronise-acknowledgment) packet, acknowledging the client's request.
+ACK: The client sends an ACK (acknowledgment) packet back to the server, establishing the connection.
+
+
+TCP/IP Connection Termination:
+FIN: The client sends a FIN (finish) packet to the server to terminate the connection.
+ACK: The server acknowledges the FIN packet with an ACK.
+FIN: The server sends its own FIN packet to the client to close the connection from its side.
+ACK: The client acknowledges with an ACK, completing the termination. 
+
+
+* HOST DISCOVERY: Host discovery  techniques are used to identify the active/live systems in the network . Host Discovery Techniques Some host discovery techniques are listed below:
+1. ARP Ping Scan
+2. UDP Ping Scan
+3. ICMP Ping Scan , ICMP ECHO Ping  ,  ICMP ECHO Ping Sweep , ICMP Timestamp Ping  ,  ICMP Address Mask Ping
+4. TCP Ping Scan  , TCP SYN Ping  , TCP ACK Ping
+5. IP Protocol Scan
+
+1. ARP Scan: Function: Uses ARP (Address Resolution Protocol) requests to map IP addresses to MAC addresses on a local network. Purpose: Identifies active devices and their MAC addresses on a local subnet.
+2. UDP Scan: Function: Sends UDP packets to various ports on a host to check for responses or ICMP port unreachable messages. Purpose: Identifies open UDP ports and services.
+3. ICMP Ping Scan: An ICMP ping scan sends a "ping" (ICMP echo request) to one or more IP addresses to check if they are active and can respond. If the device is active, it replies with an "echo reply." There are various types of ICMP scan and they are : 
+
+ICMP ECHO Ping: Function: Sends an ICMP echo request packet to a host and waits for an echo reply. Purpose: Checks if a specific host is active and reachable.
+ICMP ECHO Ping Sweep: Function: Sends ICMP echo requests to multiple IP addresses in a network range. Purpose: Identifies which hosts in a range are active.
+ICMP Timestamp Ping: Function: Sends an ICMP timestamp request packet to a host. Purpose: Determines the time on the target host, which can be used to measure network latency.
+ICMP Address Mask Ping: Function: Sends an ICMP address mask request packet to a host. Purpose: Requests the subnet mask from the target host, often used to gather network information.
+
+4. TCP SYN Scan: Function: Sends TCP SYN packets to different ports on a host to see which ports respond with SYN-ACK, indicating active services. Purpose: Identifies open ports and services on a host.
+TCP ACK Scan: Function: Sends TCP ACK packets to see if the host responds, used to map firewall rules and see if packets can pass through. Purpose: Identifies active hosts behind a firewall.
+
+5. IP Protocol Scan: Function: Sends packets using various IP protocols (such as TCP, UDP, ICMP) to a target device to see which ones the device responds to. Purpose: (Identify Supported Protocols: Determine which IP protocols are active on the device.)( Discover Services: Learn about the types of network services and applications running on the device. )(Assess Security: Evaluate potential security risks based on the protocols in use.)
+
+* NMAP :  nmap is a tool to scan the network.   Nmap Host Discovery Commands
+nmap -sn -PR [Target IP Address]
+Explanation: Uses ARP requests to discover hosts on a local network.
+
+nmap -sn -PU [Target IP Address]
+Explanation: Uses UDP packets to check if the host is up.
+
+nmap -sn -PE [Target IP Address]
+Explanation: Sends ICMP Echo Request (ping) to see if the host responds.
+
+nmap -sn -PE [Target IP Address range]
+Explanation: Sends ICMP Echo Request to a range of IP addresses to discover multiple hosts.
+
+nmap -sn -PP [Target IP Address]
+Explanation: Uses ICMP Timestamp Request to discover if the host is up.
+
+nmap -sn -PM [Target IP Address]
+Explanation: Uses ICMP Netmask Request to check if the host is up.
+
+nmap -sn -PS [Target IP Address]
+Explanation: Sends TCP SYN packets to discover hosts by checking for open ports.
+
+nmap -sn -PA [Target IP Address]
+Explanation: Sends TCP ACK packets to determine if the host is up.
+
+nmap -sn -PO [Target IP Address]
+Explanation: Uses IP Protocol Ping to discover hosts regardless of the transport layer protocol
+
+
+* Port Scanning Techniques:  Port scanning techniques are further categorised as described below. This categorisation is based on the type of protocol used for communication in the network. 
+Nmap Port discovery Commands
+
+1. **nmap -sT -v [Target IP Address]**
+   - **Type:** TCP Connect Scan.
+   - **Explanation:** Completes full TCP handshake; SYN+ACK indicates port is open, RST indicates port is closed.
+   - **Usage:** Used for straightforward port scanning without requiring root privileges.
+
+2. **nmap -sS -v [Target IP Address]**
+   - **Type:** SYN Scan (Stealth Scan).
+   - **Explanation:** Sends SYN packets; SYN+ACK indicates port is open, RST indicates port is closed.
+   - **Usage:** Preferred for its speed and stealth, requires root privileges.
+
+3. **nmap -sX -v [Target IP Address]**
+   - **Type:** Xmas Scan.
+   - **Explanation:** Sends FIN, URG, and PSH flags; no response indicates port is open, RST indicates port is closed.
+   - **Usage:** Used for stealth scanning and evading firewalls, requires root privileges.
+
+4. **nmap -sA -v [Target IP Address]**
+   - **Type:** ACK Scan.
+   - **Explanation:** Sends ACK packets; no response indicates port is filtered (stateful firewall present), RST indicates port is not filtered (no firewall).
+   - **Usage:** Used to map firewall rules and determine if a firewall is stateful, requires root privileges. 
+
+ 5. **nmap -sU -v [Target IP Address]**
+- **Type:** UDP Scan.
+- **Explanation:** Sends UDP packets; no response indicates port is open, ICMP unreachable error response indicates port is closed.
+- **Usage:** Used to discover open UDP ports on a target system, often slower and less reliable due to the nature of UDP.  The most popular port numbers    PORT NUMBER    PROTOCOL           PORT TYPE         21                         FTP                   TCP, UDP
+        22                        SSH                   TCP, UDP
+        23                      TELNET                  TCP, UDP
+        25                       SMTP                   TCP, UDP
+        53                         DNS                  TCP, UDP
+      67/68                    DHCP                       UDP
+        80                       HTTP                  TCP, UDP
+        110                       POP3                 TCP, UDP
+   137-139            NETBIOS/NETBT                    TCP, UDP
+       143                      IMAP                   TCP, UDP
+    161/162                  SNMP                      TCP, UDP
+        389                     LDAP                   TCP, UDP
+        427                      SLP                   TCP, UDP
+       443                     HTTPS                   TCP, UDP
+       445                 SMP/CIFS                      TCP
+       548                        AFP                    TCP
+       3389                      RDP                   TCP, UDP    
+
+* OS DISCOVERY (BANNER GRABBING/OS FINGERPRINTING) : An attacker uses OS discovery or banner grabbing techniques to identify network hosts running applications and OS versions with known exploits. This section introduces you to banner grabbing, its types, and banner grabbing tools.
+* Using Nmap to find the operating system.  1. nmap -O [Target IP Address]
+Flag: -O
+Type: OS Detection.
+Explanation: Attempts to determine the operating system of the target by analyzing responses to various probes. 
+
+nmap -A [Target IP Address]
+Flag: -A
+Type: Aggressive Scan.
+Explanation: Enables OS detection, version detection, script scanning, and traceroute to provide comprehensive information about the target. 
+
+nmap -6 -O [ Target IP Address ]
+ -6
+Type: IPv6 Scan.
+Explanation: Indicates that the scan should use IPv6 addresses instead of IPv4.
+-O
+Type: OS Detection.
+Explanation: Attempts to determine the operating system of the target by analyzing responses to various probes.
+Purpose: This command performs an OS detection scan on an IPv6 address, identifying the operating system running on the target device based on the responses received.
+
+
+You can detect the operating system by the TTL ( TIME TO LIVE ) as well the given table will provide the size of the TTL of different operating system. 
+￼
+* IDS/Firewall Evasion Techniques
+ Though firewalls and IDSs can prevent malicious traffic (packets) from entering a network, attackers can manage to send intended packets to the target by evading an IDS or firewall through the following techniques:
+
+1. **Packet Fragmentation:** Dividing large packets into smaller pieces for easier transmission across networks. nmap -f [Target IP Address]: Use -f to enable basic packet fragmentation 
+2. **Source Routing:** A method that allows the sender to specify the path packets take through the network. nmap --mtu 16 [Target IP Address] : Scan a target with an MTU of 16 bytes (meaning each fragment will be 16 bytes) 
+3. **Source Port Manipulation:** Changing the source port number in packets to evade detection or confusion. nmap -g 80 [Target IP Address] : Nmap sets the source port number of the scan packets. This can be useful for bypassing certain firewalls or intrusion detection systems that might allow traffic from well-known ports like port 80 (HTTP) -g 80: This sets the source port of the packets to 80.  
+4. **IP Address Decoy:** Using multiple IP addresses to hide the true source of network traffic. nmap -D RND:10 [Target IP Address] : In this command, -D: performs a decoy scan and RND: generates random and non-reserved IP addresses (here, 10). 
+5. **IP Address Spoofing:** Faking the source IP address in packets to impersonate another device.
+6. **MAC Address Spoofing:** Changing the MAC address of a network interface to disguise the device's identity.
+nmap -sT -Pn --spoof-mac 0 [Target IP Address] : In this command --spoof-mac 0 represents randomizing the MAC address, -sT: performs the TCP connect/full open scan, -Pn is used to skip the host discovery. 
+7. **Creating Custom Packets:** Crafting specific packets with desired parameters for testing or probing networks.
+ hping3 [Target IP Address] --udp --rand-source --data 500 : Here, --udp specifies sending the UDP packets to the target host, --rand-source enables the random source mode and --data specifies the packet body size.  
+8. **Randomizing Host Order:** Sending packets from different hosts in a random sequence to avoid detection or analysis.
+9. **Sending Bad Checksums:** Deliberately altering packet checksums to cause errors and disrupt communication.
+10. **Proxy Servers:** Intermediate servers that relay requests and responses, helping to hide the user's IP address.
+11. **Anonymizers:** Tools or services that obscure a user's identity and location while browsing the internet. 
+
+
+* NETWORK SCANNING COUNTERMEASURES
+ * Ping Sweep Countermeasures :
+1.Configure firewalls to detect and prevent ping sweep attempts instantaneously
+2. Use intrusion detection systems (IDSes) and intrusion prevention systems (IPSes), such as Snort to detect and prevent ping sweep attempts
+3 Carefully evaluate the type of ICMP traffic flowing through enterprise networks
+
+* Port Scanning Countermeasures :
+1. Configure firewall and IDS rules to detect and block probes
+2. Perform TCP and UDP scanning along with ICMP probes against your organization’s IP address space to check the network configuration and its available ports
+3. Ensure that anti-scanningandanti-spoofingrules are properly configured
+
+* Banner Grabbing Countermeasures :
+1. Display false banners to mislead or deceive attackers
+2. Turn off unnecessary services on the network host to limit the disclosure of information
+3. Hide file extensions to mask the web technologies  * IP Spoofing Detection Techniques: TCP Flow Control Method : 1. Attackers sending spoofed TCP packets will not receive the target's SYN-ACK packets Therefore, attackers cannot respond to a change in the congestion window size When received traffic continues after a window size is exhausted, the packets are most likely spoofed
+
+* IP Spoofing Countermeasures : 1. Encrypt all the network traffic using cryptographic network protocols such as IPsec, TLS, SSH, and HTTPS   2. Use multiple firewalls to provide a multi-layered depth of protection   3. Do not rely on IP-based authentication   
