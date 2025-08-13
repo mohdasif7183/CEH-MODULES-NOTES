@@ -1,0 +1,75 @@
+ MODULE 8 SNIFFING 
+
+*What is Network Sniffing (or Packet Sniffing)? How a Sniffer Works:
+Network sniffing (or packet sniffing) is the process of intercepting and monitoring data packets as they travel across a network. A sniffer captures the data packets traveling over a network and inspects them, allowing someone to see what information is being transmitted between devices.
+
+* what are the types of sniffing and what are the active sniffing and passive sniffing ?
+There are 2 types of sniffing Sniffing can be passive, where traffic is monitored quietly without interference, or active, where the sniffer injects or manipulates traffic to capture data on switched networks. The following is a list of different active sniffing techniques: ▪ MAC flooding ▪ DNS poisoning ▪ ARP poisoning ▪ DHCP attacks ▪ Switch port stealing ▪ Spoofing attack
+
+* How an Attacker Hacks the Network Using Sniffers ?
+1.Attacker connects to the target network (either physically or through Wi-Fi).
+2.They install or use a sniffer tool (like Wireshark) to capture network traffic.
+3.The sniffer intercepts data packets traveling between devices on the network.
+4.In passive sniffing, they quietly monitor unencrypted traffic, collecting sensitive data.
+5.In active sniffing, they manipulate the network (like ARP spoofing) to redirect traffic through their device.
+6.The attacker analyzes the captured data, extracting valuable information like passwords, emails, or private messages.   * what are the Protocols Vulnerable to Sniffing ? Protocols vulnerable to sniffing include HTTP, FTP, Telnet, SMTP, IMAP, and POP3 because they transmit data in plain text without encryption, making it easy for attackers to capture sensitive information.   * what is SPAN Port and how an attacker can exploit the whole network by compromising it ? A SPAN port (Switched Port Analyzer) is a port on a switch used to mirror network traffic for monitoring; an attacker can exploit it by gaining access and capturing all mirrored data, allowing them to eavesdrop on sensitive traffic across the entire network.  * what is wiretapping ? Wiretapping is the practice of intercepting and monitoring telephone or internet communications to secretly listen to conversations or capture data without the knowledge of the parties involved.
+
+
+* what is Lawful Interception ? 
+Lawful interception is the legally authorized process by which government agencies can access private communications and data from telecommunication providers to monitor individuals under investigation; for example, police may request phone companies to allow them to listen to a suspect's phone calls while following legal procedures.
+
+*What is a MAC Address?
+A MAC address (Media Access Control address) is a unique identifier assigned to a device’s network interface card (NIC). It's like a "home address" for your device in the digital world, so it can be identified on a network. t’s made up of 12 hexadecimal digits (numbers and letters from 0-9 and A-F). t’s made up of 12 hexadecimal digits (numbers and letters from 0-9 and A-F). First 6 digits This part is called the OUI (Organizationally Unique Identifier). Last 6 digits These are unique to the specific device, like a serial number.   * what is MAC Flooding ? MAC flooding is a network attack where an attacker overwhelms a switch by sending a large number of fake MAC addresses, causing the switch's MAC address table to overflow and forcing it to broadcast all incoming packets to all ports, effectively turning the switch into a hub; using the command macof  command you can used it macof-i eth0 -n 10, the attacker generates 10 random MAC addresses on the specified interface (eth0), which helps execute the MAC flooding attack.
+
+
+* what is MAC Spoofing/Duplicating , MAC Spoofing Technique: Windows?
+MAC spoofing (or duplicating) is the practice of changing a device's MAC address to impersonate another device on the network; on Windows, this can be done using the Device Manager or by modifying the registry settings, allowing a user to gain unauthorized access or evade network restrictions by presenting a different MAC address.
+
+* MAC spoofing tools are listed below: 
+SMAC (https://klcconsulting.net) ▪ MAC Address Changer (https://www.novirusthanks.org) ▪ Change MAC Address (https://lizardsystems.com) ▪ Easy Mac Changer (https://github.com) ▪ Spoof-Me-Now (https://sourceforge.net)
+
+
+* what is Switch Port Stealing ?
+Switch port stealing is a network attack where an attacker intercepts traffic intended for another device on a switch by exploiting the switch's MAC address table, allowing them to gain unauthorized access to sensitive data or communications.
+ 
+
+*How to Defend against MAC Attacks?
+To defend against MAC attacks, implement security measures such as port security to limit the number of MAC addresses per port, VLAN segmentation to isolate sensitive traffic, dynamic ARP inspection to validate ARP messages, and regular monitoring of network traffic for unusual activity.
+
+
+*what is DHCP, how DHCP works and what is the DHCP Starvation Attack ?
+DHCP (Dynamic Host Configuration Protocol) is a network protocol that automatically assigns IP addresses and other network configuration settings to devices on a network; it works by having a DHCP server offer an IP address to a device when it joins the network, and the device then requests and receives the address.
+A DHCP starvation attack occurs when an attacker floods the DHCP server with fake requests for IP addresses, exhausting the server's available IP pool and preventing legitimate devices from obtaining an IP address, effectively disrupting network access.
+
+DHCP Starvation Attack Tools dhcpStarvation.py (https://github.com) , Hyenae (https://sourceforge.net) , dhcpstarv (https://github.com) , Gobbler (https://sourceforge.net)
+
+
+* what is Rogue DHCP Server Attack ?
+A Rogue DHCP Server Attack occurs when an unauthorized DHCP server is introduced into a network, tricking devices into obtaining IP addresses from it instead of the legitimate server, allowing the attacker to intercept or manipulate network traffic.
+
+* what is ARP , what is ARP Poisoning what is ARP Spoofing how does the ARP Spoofing ?
+ARP (Address Resolution Protocol) is a protocol used to map IP addresses to MAC addresses on a local network; ARP poisoning is an attack that involves sending fake ARP messages to a network, associating the attacker's MAC address with the IP address of a legitimate device, which allows the attacker to intercept, modify, or redirect traffic intended for that device; ARP spoofing is a specific technique used in ARP poisoning where the attacker pretends to be another device by sending false ARP replies, effectively tricking the network into sending data to them instead.
+
+* ARP Poisoning Tools .
+arpspoof Source: https://linux.die.net , ▪ BetterCAP (https://www.bettercap.org) ▪ Ettercap (https://www.ettercap-project.org) ▪ dsniff (https://www.monkey.org) ▪ MITMf (https://github.com) ▪ Arpoison (https://sourceforge.net)
+ 
+* ARP spoofing detection tools Wireshark ( https://www.wireshark.org) ▪ ArpON (https://sourceforge.net) ▪ ARP AntiSpoofer (https://sourceforge.net) ▪ ARPStraw (https://github.com) ▪ shARP (https://github.com)
+
+* what is VLAN Hopping?
+VLAN hopping is a network attack where an attacker gains unauthorized access to a different VLAN by exploiting vulnerabilities in network switches, allowing them to send packets between VLANs and potentially intercept sensitive data.
+
+* What is an STP Attack?
+An STP attack (Spanning Tree Protocol attack) is a network attack where a hacker manipulates the STP to create network loops or disrupt traffic flow, allowing them to intercept or redirect data in a switched network.
+
+* what is DNS how is it work , what is the DNS poising and what are the Intranet DNS Spoofing ▪ Internet DNS Spoofing ▪ Proxy Server DNS Poisoning ▪ DNS Cache Poisoning?
+DNS (Domain Name System) is like the phonebook of the internet, translating human-readable domain names (like www.example.com) into IP addresses (like 192.0.2.1) so computers can communicate; DNS poisoning is an attack that corrupts the DNS cache by inserting false information, redirecting users to malicious sites instead of the intended ones.
+Types of DNS Spoofing:
+Intranet DNS Spoofing: Targeting internal DNS servers within a local network to redirect users to fake websites.
+Internet DNS Spoofing: Manipulating public DNS servers on the internet to redirect traffic to malicious sites.
+Proxy Server DNS Poisoning: Compromising a proxy server's DNS settings to control the resolution of domain names for users passing through it.
+DNS Cache Poisoning: Inserting false records into a DNS server's cache, leading to users being directed to incorrect or harmful IP addresses.
+
+ * DNS Poisoning Tools 
+DerpNSpoof Source: https://github.com  , ▪ DNS Spoof (https://github.com) ▪ DNS-poison (https://github.com) ▪ Ettercap (https://www.ettercap-project.org) ▪ Evilgrade (https://github.com) ▪ DNS Poisoning Tool (https://github.com)
+
+
