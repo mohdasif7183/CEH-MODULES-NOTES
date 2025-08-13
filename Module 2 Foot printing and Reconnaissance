@@ -1,0 +1,206 @@
+* Foot Printing — Foot printing is the process of collecting basic information about a target system or network. It's the first step in ethical hacking, helping to understand the target's setup and find potential weak spots. This includes gathering details like IP addresses, domain names, and network structure. There are 2 types of foot printing are there.  1. Passive Foot printing: Collecting information without direct interaction 2. Active Foot printing: Collecting information through direct interaction with the target system.  * During foot printing, you can obtain various types of information about a target system or network. This information helps build a profile of the target, which is useful for further security analysis or penetration testing. Here are some key pieces of information you might gather:
+
+Domain Names: Information about the target's domain names and associated subdomains.
+IP Addresses: Details about the IP addresses used by the target.
+Network Infrastructure: Information about the target's network topology, routers, firewalls, and other devices.
+Operating Systems and Software: Details about the operating systems and software applications used by the target.
+Email Addresses: Email addresses associated with the target, which can be used for social engineering attacks.
+Employee Information: Names, job titles, and contact information of employees, often gathered from social media and company websites.
+DNS Information: DNS records such as MX (mail exchange) records, NS (name server) records, and A (address) records.
+WHOIS Information: Registration details of domain names, including the owner's contact information and registration dates.
+Security Policies: Information about the target's security policies and practices, often inferred from publicly available documents or job postings.
+Website Information: Details about the target's websites, including technologies used, web server details, and content management systems.
+Open Ports and Services: Information about open ports and running services on the target's network, typically obtained through active foot printing.
+Publicly Accessible Files: Documents and files that are publicly available and may contain sensitive information
+
+
+ * Foot printing through search engines involves using search engines like Google, Yahoo, Bing, Duck Duck Go , etc to gather information about a target. By performing specific searches, you can find publicly available details such as:
+
+Website Content: Information on the target's websites.
+Employee Information: Names, job titles, and contact details from social media and company pages.
+Public Records: Documents and records that mention the target.
+Related Domains: Associated domains and subdomains.
+Technical Details: Information about the target’s infrastructure from technical forums and support pages.
+This method helps collect valuable data without directly interacting with the target system.
+
+
+ *GOOGLE DORKS 
+
+1.Cache: cache:example.com Explanation: Displays the cached version of the specified webpage as stored by Google. Useful for viewing content if the live site is down or for seeing previous versions of a page.
+2.Link: link:example.com Explanation: Lists webpages that link to the specified site. Helpful for understanding the backlink profile of a website or seeing who is referencing a particular page.
+3.Related: related:example.com Explanation: Shows websites similar to the specified site. It helps identify competitors or related sources of information.
+4.Info: info:example.com Explanation: Provides information about the specified site according to Google. This can include details like cached content, related pages, and search results.
+5.Site: site: example.com Explanation: Restricts search results to pages within the specified site or domain. Useful for site-specific searches.
+6.Allintitle: allintitle:keyword1 keyword2 Explanation: Finds pages where all specified words appear in the title. Helps in narrowing down search results to pages with specific titles.
+7.Intitle: intitle:keyword Explanation: Finds pages with the specified word in the title. Similar to allintitle, but searches for any of the specified words in the title.
+8.Allinurl: allinurl:keyword1 keyword2 Explanation: Searches for pages where all specified words appear in the URL. Useful for finding specific types of URLs or pages related to a particular topic.
+9.Inurl: inurl:keyword Explanation: Finds pages with the specified word in the URL. Similar to allinurl, but searches for any of the specified words in the URL.
+10.Location: location:example Explanation: Shows results related to the specified location. This operator can help find local information or results specific to a geographic area.
+
+These operators allow for advanced and specific searches on Google, enabling users to find targeted information efficiently. Always ensure to use Google dorks responsibly and within legal and ethical boundaries.
+
+The Google Hacking Database (GHDB) is an authoritative source for querying the ever-widening reach of the Google search engine
+Attackers use Google dorks in Google advanced search operators to extract sensitive information about their target, such as vulnerable servers, error messages, sensitive files, login pages, and websites ( Source: https://www.exploit-db.com  )
+
+* You can find the TOP LEVEL DOMAIN , SUB DOMAINS by using the websites and tool, one of the website and tool are netcraft and sublistr.
+ Netcraft Website: Netcraft provides a web-based service that allows you to search for information about domains, including historical data, hosting details, and subdomains. You can access it through any web browser on your Linux system. Netcraft Website: Visit the Netcraft website (https://www.netcraft.com/) in your browser, enter the domain you want to investigate, and explore the provided information, including subdomains.
+
+Sublist3r Tool: Sublist3r is a Python-based tool designed for subdomain enumeration. It can be installed and run on Linux systems to discover subdomains using multiple sources such as search engines, DNS records, and more.
+
+* GATHERING EMAIL OF THE TARGET BY USING TOOLS.
+ Gathering email addresses related to the target organisation acts as an important attack vector during the later phases of hacking Attackers use automated tools such as theHarvester and Email Spider to collect publicly available email addresses of the target organisation that helps them perform social engineering and brute-force attacks Source: http://www.edge-security.com 
+
+
+ * FOOT PRINTING THROUGH JOB SITES 
+
+Foot printing through job sites involves gathering information about individuals or organisations by examining job postings, resumes, and company profiles listed on these sites. This method can reveal details such as:
+Company Information: Insights into organisational structures, job roles, and departmental functions.
+Employee Details: Profiles and resumes can provide names, job titles, skills, and sometimes contact information of employees.
+Job Requirements: Descriptions of technologies, software, and systems used by the company.
+This information can be valuable for understanding a company's operations, technology stack, and potential points of entry for security assessments or business strategies.
+
+
+ * DEEP AND DARK WEB FOOT PRINTING   Deep and Dark Web foot printing involves gathering information from parts of the internet not indexed by traditional search engines. This includes:
+Deep Web: Websites that require specific credentials or have restricted access, such as private databases or subscription services.
+Dark Web: Anonymised networks like Tor, used for illicit activities and anonymous communication.
+
+Tor Browser Used: Tor Browser is commonly used for accessing the Dark Web due to its built-in anonymity features, while tools like specialised search engines and private networks are used for the Deep Web. These methods help gather hidden information not accessible through regular browsing.
+
+
+ * DETERMINING THE OPERATING SYSTEM
+
+Determining the operating system (OS) involves identifying the specific OS running on a target computer or network device. This information is crucial for security assessments, software compatibility, and troubleshooting. These methods help determine if a system runs Windows, Linux, macOS, or another OS, aiding in targeted attacks, system management, IP Address and network configuration.
+
+You can use Shodan, Netcraft, and Censys for determining the operating system of remote systems: You can visit these links to explore more about each platform and their capabilities in gathering information about internet-connected devices, including operating systems.
+
+
+ * COLLECTING INFORMATION THROUGH SOCIAL ENGINEERING ON SOCIAL NETWORKING SITES
+
+Attackers use social engineering tricks to gather sensitive information from social networking websites Attackers create a fake profile and then use the false identity to lure employees into revealing their sensitive information Attackers collect information about the employees’ interests and tricks them into revealing more information
+
+Attackers use various tools such as Sherlock, Social Searcher, and UserRecon to footprint social networking sites such as Twitter, Instagram, Facebook, and Pinterest to gather sensitive information about the target such as the date of birth, educational qualification, employment status, name of relatives, and information about the organization that they are working for, including the business strategy, potential clients, and upcoming project plans.
+
+
+ * WEBSITE FOOTPRINTING
+
+Website foot printing refers to the monitoring and analysis of the target organisations website for information Browsing the target website may provide the following information: Software used and its version Operating system used and its scripting platform Sub-directories and parameters Filename, path, database field name, or query Technologies used Contact and CMS detail.
+
+Attackers use Burp Suite, Zaproxy, Wappalyzer, CentralOps, Website Informer, etc. to view headers that provide the following information.
+
+(Examining the HTML source code may provide ) : Comments present in the source code Contact details of the web developer or admin File system structure and script type
+
+( Examining cookies may provide ) : Software in use and its behaviour Scripting platforms used
+
+Website Foot printing using Web Spiders A web spider (also known as web crawler or web robot) is a program or automated script that browses websites in a methodical manner to collect specific information such as employee names and email addresses. Attackers then use the collected information to perform foot printing and social engineering attacks. Web spidering fails if the target website has the robots.txt file in its root directory with a listing of directories to prevent crawling.  ( Source: http://www.webextractor.com )
+
+Mirroring Entire Website Website mirroring is the process of creating a replica or clone of the original website. Users can duplicate websites using mirroring tools such as HTTrack Web Site Copier and Cyotek WebCopy. These tools download a website to a local directory and recursively build all the directories including HTML, images, flash, videos, and other files from the web server on another computer. ( Source: https://www.httrack.com )
+
+Extracting Website Information from https://archive.org  Internet Archive’s Wayback Machine allows one to visit archived versions of websites, an attacker can retrieve even information removed from the target website, such as web pages, audio files, video files, images, text, and software programs. Attackers use this information to perform phishing and other types of web application attacks on the target organisation.
+
+
+ * EMAIL FOOT PRINTING
+
+This section describes how to track email communications, how to collect information from email headers, and email tracking tools. Email tracking is used to monitor the delivery of emails to an intended recipient. Attackers track emails to gather information about a target recipient, such as IP addresses, geolocation, browser and OS details, to build a hacking strategy and perform social engineering and other attacks
+
+▪ Recipient's System IP address: Allows tracking of the recipient’s IP address ▪ Geolocation: Estimates and displays the location of the recipient on the map and may even calculate the distance from the attacker’s location
+▪ Email Received and Read: Notifies the attacker when the email is received and read by the recipient
+▪ Read Duration: The time spent by the recipient in reading the email sent by the sender ▪ Proxy Detection: Provides information about the type of server used by the recipient ▪ Links: Checks whether the links sent to the recipient through email have been checked ▪ Operating System and Browser information: Reveals information about the operating system and the browser used by the recipient. The attacker can use this information to find loopholes in that version of the operating system and browser to launch further attacks
+▪ Forward Email: Determines whether the email sent to the user is forwarded to another person
+▪ Device Type: Provides information about the type of device used to open and read the email, e.g., desktop computer, mobile device, or laptop
+▪ Path Travelled: Tracks the path through which the email traveled via email transfer agents from source to destination system
+
+
+Email tracking tools such as eMailTrackerPro, Infoga, Mailtrack, and PoliteMail allow an attacker to track an email and extract information such as sender identity, mail server, sender’s IP address, location, and so on.   ( Source: http://www.emailtrackerpro.com )
+
+ * WHOIS FOOT PRINTING
+
+Whois foot printing involves using the Whois database to gather information about domain registrations. Here's what it entails:
+Domain Information: Whois provides details about a domain name, including the registrar, registration dates, and expiry dates.
+Owner Contact: It lists the domain owner's contact information, such as name, organisation, address, email, and phone number.
+Administrative and Technical Contacts: Whois also includes information about the administrative and technical contacts associated with the domain.
+Name Servers: It reveals the domain's name servers, which are crucial for directing traffic to the correct servers.
+Registration History: Whois may show historical data about changes in registration details and past owners of the domain.
+Geo Location : Provide the Geo location of the target company.
+
+Whois foot printing helps in identifying who owns a domain, when it was registered, and other relevant contact information. This information is useful for legal purposes, contacting domain owners, and understanding the background of a website or organisation.
+
+( Source: https://www.ip2location.com ) As shown in the screenshot, attackers use IP2Location tool to identify a visitor's geographical location, i.e., country, region, city, latitude and longitude of city, ZIP code, time zone, connection speed, ISP, domain name, IDD country code, area code, weather
+
+ * DNS FOOT PRINTING
+
+After collecting the Whois records of the target, the next phase of the foot printing methodology is Domain Name System (DNS) foot printing. Attackers perform DNS foot printing to gather information about DNS servers, DNS records, and the types of servers used by the target organisation. This information helps attackers identify the hosts connected in the target network and further exploit the target organisation. This section describes how to extract DNS information and perform reverse DNS lookups using various DNS interrogation tools.
+A (Address Record) – Maps a domain name to an IPv4 address (e.g., example.com → 93.184.216.34).
+
+AAAA (IPv6 Address Record) – Maps a domain name to an IPv6 address (e.g., example.com → 2606:2800:220:1:248:1893:25c8:1946).
+
+CNAME (Canonical Name Record) – Creates an alias for one domain name to another (e.g., www.example.com → example.com).
+
+MX (Mail Exchange Record) – Specifies mail servers responsible for receiving email for the domain, along with their priority.
+
+NS (Name Server Record) – Specifies the authoritative DNS servers for a domain.
+
+TXT (Text Record) – Stores human-readable text or machine-readable data (used for SPF, DKIM, DMARC, verification, etc.).
+
+SOA (Start of Authority Record) – Contains administrative information about the domain, including primary name server, contact email, and refresh/expiry timings.
+
+PTR (Pointer Record) – Used for reverse DNS lookups, mapping IP addresses back to domain names.
+
+SRV (Service Record) – Defines the location (host and port) of specific services (e.g., SIP, XMPP).
+
+CAA (Certification Authority Authorization) – Specifies which certificate authorities are allowed to issue SSL/TLS certificates for the domain.
+
+SPF (Sender Policy Framework) – A type of TXT record used to define which mail servers are allowed to send email on behalf of the domain (often merged into TXT).
+￼
+ * REVERSE DNS LOOKUP 
+
+DNS lookup is used to find the IP addresses for a given domain name, and a reverse DNS operation is performed to obtain the domain name of a given IP address. When looking for a domain by entering the domain name in a browser, the DNS converts the domain name into an IP address and forwards the request for further processing. This conversion of a domain name into an IP address is performed using a record. Attackers perform a reverse DNS lookup on the IP range to locate a DNS PTR record for such IP addresses.
+
+( Source: https://mxtoolbox.com )
+
+  * NETWORK FOOT PRINTING
+
+Network foot printing is the process of gathering information about a network and its infrastructure to understand its layout, components, and potential vulnerabilities. This section describes the method to locate the network range, trace route analysis, and trace route tools.  Trace route : Trace route programs work on the concept of ICMP protocol and use the TTL field in the header of ICMP packets to discover the routers on the path to a target host. Trace route Tools Trace route tools such as Path Analyzer Pro, VisualRoute, Traceroute NG, and PingPlotter are useful for extracting information about the geographical location of routers, servers, and IP devices in a network. Such tools help us to trace, identify, and monitor the network activity on a world map.
+
+
+ * FOOT PRINTING THROUGH SOCIAL ENGINEERING 
+
+Social engineering is an art of exploiting human behaviour to extract confidential information. Social engineers depend on the fact that people are unaware of their valuable information and are careless about protecting it.  Social engineers attempt to gather Credit card details / and social security number / Usernames and passwords /Security products in use Operating systems / and software versions Network layout information /  IP addresses and names of servers.  Social engineering techniques include
+Eavesdropping : Listening in on private communications or conversations without permission. In a cybersecurity context, it often refers to intercepting data transmission over a network to gather sensitive information.
+ Shoulder surfing : 	Observing someone's screen or keyboard to obtain confidential information such as passwords, PINs, or other sensitive data. This can happen in public places where individuals use their devices openly.
+ Dumpster diving : 	Searching through someone's trash to find discarded items that may contain sensitive information, such as documents, notes, or electronic devices. This information can be used for malicious purposes like identity theft.
+ Impersonation : Pretending to be someone else to gain unauthorised access to information, systems, or physical locations. This can involve social engineering techniques to deceive individuals into revealing confidential information or granting access.
+ * FOOT PRINTING TOOLS   1) Maltego : Maltego is a tool for gathering and visualising open-source intelligence (OSINT). It's used for:
+Data Collection: Automates info gathering from various online sources.
+Relationship Mapping: Visualises connections between entities like people, domains, and IP addresses.
+Cybersecurity: Assists in threat intelligence and digital forensics.
+Social Network Analysis: Maps social connections and interactions.
+Maltego helps make sense of complex data and relationships in cybersecurity and investigative contexts. ( Source: https://www.maltego.com  ) 
+
+ 2) Recon-ng : Recon-ng is a web reconnaissance framework with independent modules for database interaction that provides an environment in which open-source web-based reconnaissance can be conducted.
+ 3) FOCA : Fingerprinting Organisations with Collected Archives (FOCA) is a tool used mainly to find metadata and hidden information in the documents that its scans. FOCA is capable of scanning and analysing a wide variety of documents, with the most common ones being Microsoft Office, Open Office, or PDF files. 
+1.Metadata Extraction
+2.Document Analysis
+3.Network Discovery
+4.File Enumeration
+5.Search Engine Queries
+
+ 4) OSINT Framework : The OSINT Framework is a collection of tools and resources for open-source intelligence (OSINT) gathering. It helps users find and utilise public information for security, investigative, and research purposes. The framework categories tools based on the type of information they gather, such as social media, people search, and domain analysis. ( Source: https://osintframework.com )
+
+ * FOOT PRINTING COUNTER MEASURES
+
+Thus far, we have discussed the importance of foot printing, various methods to perform foot printing, and tools that help in its execution. Now, we discuss foot printing countermeasures, i.e., the measures or actions taken to prevent or offset information disclosure.
+Some of the foot printing countermeasures are as follows: 
+  1. Develop and enforce security policies.
+ 2. Restrict zone transfer
+ 3. Disable directory listings in the web servers
+ 4. Conduct security awareness training periodically to educate employees about various social engineering tricks and risks .
+ 5. Opt for privacy services on a Whois Lookup database.
+ 6. Avoid domain-level cross-linking for critical assets.
+ 7. Encrypt and password-protect sensitive information
+ 8. Place critical documents, such as business plans and proprietary documents offline to prevent exploitation
+ 9. Train employees to thwart social engineering techniques and attacks
+Sanitise the details provided to Internet registrars to hide the direct contact details of the organisation
+Disable the geo-tagging functionality on cameras to prevent geolocation tracking
+Avoid revealing one’s location or travel plans on social networking sites
+Turn off geolocation access on all mobile devices when not required
+Ensure that no critical information is displayed on notice boards or walls.
