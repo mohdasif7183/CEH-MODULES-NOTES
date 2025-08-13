@@ -1,0 +1,84 @@
+Module 1 Introduction to ethical hacking. 
+
+* Information security overview — Information security, often referred to as InfoSec, is the practice of protecting information and information systems from unauthorized access, use, disclosure, disruption, modification, or destruction. The key elements of info_sec are.
+Confidentiality: Ensuring that information is accessible only to those who are authorised to have access.
+Integrity: Maintaining the accuracy and completeness of information and processing methods.
+Availability: Ensuring that authorised users have access to information and associated assets when required.	
+Authenticity: This makes sure that a message or data comes from a trusted and verified source. It's like a signature that proves the sender is really who they say they are.
+Non-repudiation: This ensures that someone can't deny they sent a message or completed a transaction. It's like a receipt that proves an action was taken, so no one can claim later that they didn't do it
+
+
+* Motives, Goals, and Objectives of Information Security Attacks —  Information security attacks are carried out for various motives, goals, and objectives. Here's a simple breakdown: ( Motives: The reasons why attackers carry out attacks. ) ( Goals: The end results attackers aim to achieve ) ( Objectives: The specific actions taken to achieve their goals ) an attack is combination of this  Attack = Motive ( goal ) + Method + vulnerability.  * Classification of Attacks — Attacks in information security can be classified into several types based on their methods and targets: 
+Passive Attacks: Monitoring or eavesdropping on communications without altering the data. Example: Listening to network traffic.
+Active Attacks: Interfering with communications by modifying data or disrupting services. Example: Hacking into a network to change data.
+Close-In Attacks: Physically getting close to a target to access information or systems. Example: Gaining access to a restricted area to plug in a malicious USB.
+Insider Attacks: Carried out by someone within the organisation who has authorised access. Example: An employee stealing sensitive information.
+Distribution Attacks: Inserting malicious components into hardware or software during manufacturing or distribution. Example: Adding malware to software updates. 
+
+* Information warfare, often called info_warfare, involves the use and management of information to gain a competitive advantage over an opponent.
+Psychological Operations (Psy_Ops): Spreading propaganda or misinformation to influence the opinions, emotions, and behaviour of people.
+Cyber Warfare: Attacking information systems, networks, and infrastructure to disrupt, destroy, or manipulate data.
+Electronic Warfare: Using electromagnetic spectrum (e.g., jamming communications) to interfere with or intercept information.
+Deception: Misleading opponents through false information or signals.
+Physical Destruction: Destroying physical components of information systems, like servers or communication lines. Info_warfare aims to undermine the opponent's ability to make decisions, maintain operations, or influence public perception, ultimately giving the attacker an upper hand. 
+
+* The CEH (Certified Ethical Hacker) methodology is a step-by-step process used by ethical hackers to assess and improve the security of systems. Here's a simple breakdown:
+Reconnaissance: Gathering information about the target.
+Scanning: Identifying open ports and vulnerabilities.
+Gaining Access: Exploiting vulnerabilities to enter the system.
+Maintaining Access: Keeping access to the system for future use.
+Covering Tracks: Hiding evidence of the hacking activity.
+
+* The Cyber Kill Chain is a framework that outlines the steps cyber attackers take to achieve their goals. Here are the steps in simple terms:
+Reconnaissance: Gathering information about the target.
+Weaponisation: Creating malware to exploit the gathered information.
+Delivery: Sending the malware to the target (e.g., via email).
+Exploitation: Using the malware to exploit a vulnerability.
+Installation: Installing malware on the target system.
+Command and Control (C2): Establishing a remote control channel.
+Actions on Objectives: Performing the attacker's goal (e.g., data theft).   * Tactics, Techniques, and Procedures (TTPs) — outline the behaviour and actions of cyber attackers. 
+Tactics: The overall goals or strategies of the attack (e.g., gaining access)
+Techniques: The specific methods used to achieve the tactics (e.g., phishing).
+Procedures: The detailed steps taken to execute the techniques (e.g., sending a fake email)  
+
+* Indicators of Compromise (IoCs) —  Are clues that show your computer or network might have been attacked. They help identify suspicious activities. Common IoCs include:
+Weird network activity: Unusual or unexpected data traffic.
+Strange logins: Users logging in at odd times or from unusual places.
+File changes: Unexpected edits, access, or deletions of files.
+Odd system behaviour: Computers crashing or rebooting without a clear reason.
+New or unknown software: Unrecognised programs installed.
+Bad connections: Contact with known malicious websites or IP addresses.
+Weird log entries: Strange entries in system logs, like multiple failed login attempts.
+Malware: Known malicious code or software detected.
+Suspicious emails: Phishing attempts or emails with harmful attachments or links. 
+These signs help cybersecurity experts detect and respond to possible attacks.
+
+
+* The MITRE ATTACK Framework — Is a guide used by cybersecurity professionals to understand how attackers behave. It lists common tactics, techniques, and procedures (TTPs) that hackers use to break into systems and steal data. Uses of the MITRE ATTACK Framework:
+Identify Threats: Helps detect and recognise hacking activities.
+Assess Security: Tests and improves defences against real-world attacks.
+Incident Response: Guides in investigating and responding to security breaches.
+Threat Intelligence: Shares information about how attackers operate 
+In short, it's a tool to help protect and defend against cyberattacks by understanding how attackers work. 
+
+* The Diamond Model of Intrusion Analysis — Is a way to understand cyber attacks by looking at four key parts:
+Adversary: The attacker.
+Capability: The tools and methods they use.
+Infrastructure: The network or systems they use to launch the attack.
+Victim: The target of the attack.
+By studying these parts and how they connect, we can better understand and defend against cyber threats.  
+
+* what is hacking — Hacking is the act of gaining unauthorised access to computers, networks, or data to steal, modify, or damage information, or to disrupt systems.  * who is a hacker — A hacker is a person who uses technical skills to gain unauthorised access to systems, networks, or data.  * Hacker classes are categories based on their intentions and actions:
+White Hat: Ethical hackers who help improve security.
+Black Hat: Malicious hackers who exploit systems for personal gain.
+Grey Hat: Hackers who sometimes break the law but don’t have malicious intent.
+Script Kiddies: Inexperienced hackers using existing tools without understanding them.
+Hactivists: Hackers who attack for political or social causes.
+State-Sponsored: Hackers employed by governments to conduct cyber espionage or attacks.
+suicide hackers — who don’t think about getting the consequences of being caught and perform the operation most are illegal.
+cyber terrorist — Individuals with wide range of skills who are motivated by religious or political beliefs to create fear through the large-scale disruption of computer networks
+Hacker Teams — A consortium of skilled hackers having their own resources and funding. They work together in synergy for researching the state-of-the-art technologies
+Industrial Spies — Individuals who perform corporate espionage by illegally spying on competitor organisations and focus on stealing information such as blueprints and formulas
+Insider — Any trusted person who has access to critical assets of an organisation. They use privileged access to violate rules or intentionally cause harm to the organisation’s information system
+Criminal Syndicate — Groups of individuals that are involved in organised, planned, and prolonged criminal activities. They illegally embezzle money by performing sophisticated cyber-attack
+Organised Hackers — Miscreants or hardened criminals who use rented devices or botnets to perform various cyber-attacks to pilfer money from victims.  
