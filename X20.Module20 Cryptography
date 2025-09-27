@@ -1,0 +1,152 @@
+Clear text / Plaintext
+
+Definition: The original readable data before any encryption.
+
+Ciphertext
+
+Definition: The scrambled (encrypted) data that is unreadable without the key.
+
+Key
+
+Definition: The secret value that controls how data is transformed for encryption and decryption.
+(Note: a key is not the same as a password, although a password can be used to derive a key.)
+
+Cipher
+
+Definition: The algorithm (set of rules) used to encrypt and decrypt data.
+
+Symmetric Cryptography
+
+Definition: Same key is used for both encryption and decryption.
+
+Fast and efficient.
+
+Key distribution is a challenge (both parties must have the same secret).
+
+Two kinds: stream ciphers and block ciphers.
+Popular algorithms: AES, DES, 3DES, Blowfish, Twofish, RC4 (RC4 now discouraged).
+
+Asymmetric / Public-Key Cryptography
+
+Definition: Uses a pair of keys — a public key (shared openly) and a private key (kept secret by the owner).
+
+Public key is used to encrypt or verify; private key is used to decrypt or sign.
+
+Solves key distribution problems and enables digital signatures.
+
+Provides confidentiality, integrity, authenticity and non-repudiation.
+Popular algorithms: RSA, DSA, Diffie-Hellman (key exchange), ECDH / ECDSA (elliptic-curve versions).
+
+Substitution Cipher
+
+Definition: Each character (or unit) of plaintext is replaced with another character.
+Example: Caesar cipher (shift by 3)
+
+Plaintext : THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+Ciphertext: QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD
+Key: right shift of 3
+
+Transposition Cipher
+
+Definition: The positions of plaintext units are rearranged according to a system, but the actual characters remain the same.
+Example: Rail Fence cipher
+
+Clear text: WE ARE DISCOVERED. FLEE AT ONCE
+Rail fence layout example -> Ciphertext: WECRLTEERDSOEEFEAOCAIVDEN
+
+
+(Plain characters are moved to different positions to form ciphertext.)
+
+Polyalphabetic Cipher
+
+Definition: A substitution cipher that uses multiple substitution alphabets (not just one).
+Example: Vigenère cipher (uses a repeating key to shift letters differently at each position).
+
+Stream Cipher
+
+Definition: Encrypts plaintext one bit or byte at a time by combining it with a pseudorandom keystream.
+Examples: RC4 (legacy), Salsa20, ChaCha20.
+
+Block Cipher
+
+Definition: Encrypts fixed-size blocks (groups) of bits with a symmetric key and a fixed transformation.
+Examples: AES, DES, 3DES, 2DES.
+
+Symmetric Algorithm Details
+Data Encryption Standard (DES)
+
+Introduced: 1975, standardized 1977 (NIST).
+
+Problems: Short effective key length (56 bits) — vulnerable to brute force and ASIC attacks.
+
+Improved version: Triple DES (applies DES three times) — more secure but slow and compute-heavy.
+
+DES parameters
+
+Parameter	Value
+Block size	64 bits
+Key size	56 bits
+Rounds	16
+
+Triple DES (3DES): Uses DES three times to increase security, but is slower.
+
+Advanced Encryption Standard (AES)
+
+Published: late 1990s, standard 2002.
+
+Widely used and strong (approved for high-security use).
+
+AES parameters
+
+Variant	Block size	Key size	Rounds
+AES-128	128 bits	128 bits	10
+AES-192	128 bits	192 bits	12
+AES-256	128 bits	256 bits	14
+Modes of Operation (for block ciphers)
+
+ECB (Electronic Code Book): Each block encrypted independently. Simple but reveals patterns — not recommended for most use.
+
+CBC (Cipher Block Chaining): Each plaintext block is XORed with previous ciphertext block before encryption; hides patterns, needs IV.
+
+OFB (Output Feedback): Turns a block cipher into a synchronous stream cipher using an IV and feedback.
+
+GCM (Galois/Counter Mode): Counter mode with built-in authentication (integrity + confidentiality). Common and recommended.
+
+Hashing
+
+Definition: Converts data into a fixed-length string (hash) in a one-way way — you cannot revert the hash to the original data. Used for integrity checks and storing password hashes.
+
+Avalanche effect: Changing one bit in input drastically changes the hash.
+
+Collision: When two different inputs produce the same hash (undesirable).
+
+Common hashes: MD5 (weak), SHA-1 (weak), SHA-2 family (SHA-256, SHA-512 — strong), and modern password hashers like bcrypt, scrypt, PBKDF2.
+
+Other Important Concepts (brief)
+HMAC (Hash-based Message Authentication Code)
+
+Definition: A hash combined with a secret key to provide message integrity and authenticity.
+
+PKI (Public Key Infrastructure) & Digital Certificates
+
+Definition: The system (CAs, certificates, revocation) that issues and manages public key certificates (e.g., X.509) so people can trust public keys.
+
+Digital Signature
+
+Definition: A cryptographic signature (hash + private key) proving who signed a message and that it wasn’t altered.
+
+Key Exchange
+
+Definition: Methods to securely agree on keys between parties (e.g., Diffie-Hellman, ECDH).
+
+Salting (for passwords)
+
+Definition: Adding random data to a password before hashing so identical passwords do not yield the same hash and to slow down precomputed attacks.
+
+Steganography
+
+Definition: Hiding a message inside another file (image, audio, etc.) so the message's existence is concealed.
+
+One-Time Pad (OTP)
+
+Definition: A theoretically unbreakable method when a truly random key as long as the message is used once and kept secret.
