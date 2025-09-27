@@ -1,0 +1,95 @@
+* what is Intrusion Detection System (IDS) ?
+An Intrusion Detection System (IDS) is a tool that monitors network or system activity for signs of suspicious behavior or security breaches.
+
+
+ * How an IDS Detects an Intrusion? 
+An IDS detects intrusions by analyzing network traffic and system activities, looking for patterns that match known attack signatures or unusual behaviors.
+
+
+
+ * what is Types of Intrusion Detection Systems and what are Network-Based Intrusion Detection Systems , Host-Based Intrusion Detection Systems ?
+Network-Based Intrusion Detection Systems (NIDS): It checks all the data passing through a network, looking for unusual activity, like an attacker trying to enter.
+Host-Based Intrusion Detection Systems (HIDS): It monitors a single computer, watching its files, processes, and system activities for signs of an attack.   
+ * Types of IDS Alerts  and what are True Positive (Attack - Alert) ,False Positive (No Attack - Alert) ,False Negative (Attack - No Alert) ,True Negative (No Attack - No Alert) ?
+Types of IDS Alerts:
+True Positive (Attack - Alert): Correctly identifies an attack and raises an alert.
+False Positive (No Attack - Alert): Incorrectly raises an alert when there's no attack.
+False Negative (Attack - No Alert): Fails to raise an alert when there’s an attack.
+True Negative (No Attack - No Alert): Correctly recognizes no attack and raises no alert.
+
+
+ * what is Intrusion Prevention System (IPS) ?
+An Intrusion Prevention System (IPS) is a security tool that not only detects but also actively blocks or prevents malicious activities on a network or system.  
+ * What is Firewall ?
+A firewall is a security system that monitors and controls incoming and outgoing network traffic based on predefined security rules, acting as a barrier between trusted and untrusted networks.
+
+
+*what is Firewall Architecture ? Bastion Host , Screened Subnet , Multi-homed Firewall ?
+Firewall Architecture refers to how firewalls are designed and placed in a network to protect it.
+Bastion Host: A highly secured server that acts as a gateway between an internal network and the outside world, typically with minimal services running to reduce vulnerabilities.
+Screened Subnet: A subnet between two firewalls (usually one for external and one for internal), providing an additional layer of security to separate trusted and untrusted networks.
+Multi-homed Firewall: A firewall with multiple network interfaces, connecting different networks, usually with each interface serving a different network zone (e.g., internal, external, DMZ).
+
+
+
+ * what is DMZ?
+A DMZ (Demilitarized Zone) is a network segment placed between an internal trusted network and an external untrusted network (like the internet), used to host services that need to be accessed from both sides, such as web servers or mail servers, with extra security layers.   *what is honeypot?
+A honeypot is a fake system or network set up to attract hackers and cybercriminals, making them think it's a real target, so security experts can study their methods and keep the real systems safe.
+
+
+*what is snort, what are it's rule and how it is works?
+Snort is an open-source network intrusion detection system (IDS) and intrusion prevention system (IPS) that monitors network traffic for malicious activity.
+Rules: Snort uses rules to detect malicious traffic. These rules consist of:
+Header: Defines the conditions for the rule (e.g., protocol type, IP address).
+Options: Additional conditions (e.g., content to match, ports).
+Example of a rule: alert tcp any any -> 192.168.1.0/24 80 (msg:"Possible Web Attack"; sid:1001 This rule looks for TCP traffic from any IP to the 192.168.1.0/24 subnet on port 80 and triggers an alert.
+How it Works:
+Snort captures network traffic in real-time.
+It compares the captured traffic against predefined rules.
+If the traffic matches a rule, Snort generates an alert or takes action (e.g., block or log).
+Snort helps in detecting intrusions, analyzing traffic patterns, and preventing attacks.  
+
+*IDS Evasion Techniques 
+▪ Insertion Attack ▪ Evasion ▪ DoS Attack ▪ Obfuscating ▪ False Positive Generation ▪ Session Splicing ▪ Unicode Evasion ▪ Fragmentation Attack ▪ Overlapping Fragments
+▪ Time-To-Live Attacks ▪ Urgency Flag ▪ Invalid RST Packets ▪ Polymorphic Shellcode ▪ ASCII Shellcode ▪ Application-Layer Attacks ▪ Desynchronization ▪ Encryption ▪ Flooding
+
+
+
+*what is Obfuscating and False Positive Generation ?
+Obfuscating is disguising code to hide it from detection.
+False Positive Generation is creating fake alerts to confuse or overwhelm security systems.
+
+
+*what is Session Splicing and Unicode Evasion Technique ?
+Session Splicing is splitting malicious code across multiple packets to avoid detection.
+Unicode Evasion uses special characters or encoding to hide attack signatures from security systems.
+
+
+*what is Fragmentation Attack?
+A Fragmentation Attack splits malicious data into tiny fragments to sneak past security filters that may not detect threats across separate parts.
+
+
+*what is Time-To-Live Attacks ?
+A Time-To-Live (TTL) Attack manipulates the TTL value in packets to evade network defenses by making packets expire before they reach certain detection systems.
+
+
+*what is Application-Layer Attacks ?
+Application-Layer Attacks target vulnerabilities in applications (like websites) to disrupt services or steal data, focusing on the layer where users interact.
+
+
+*what is Desynchronization and explain the pre-Desynchronization and post-Desynchronization ?
+Desynchronization is a tactic where attackers disrupt the normal communication flow between two systems by altering packet sequence or timing.
+Pre-Desynchronization: Occurs before a connection is established, causing initial handshake or setup issues.
+Post-Desynchronization: Happens after a connection is made, interrupting ongoing communication between systems.
+
+
+*what is Encryption and Flooding ?
+Encryption is the process of converting data into a coded format to protect it from unauthorized access.
+Flooding involves overwhelming a system with excessive traffic to cause slowdowns or crashes.
+
+
+*Detecting Honeypots 
+Attackers can determine the presence of honeypotsby probing the services running on the system
+
+Tools to detect honeypots:
+Send-safe Honeypot Hunter (http://www.send-safe.com) kippo_detect (https://github.com)
