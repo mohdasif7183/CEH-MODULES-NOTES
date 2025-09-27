@@ -1,0 +1,69 @@
+*what is a web server and what is Web Server Operations ?
+Web Server: A computer or software that delivers web pages to users when they request them through a browser. Web Server Operations: Tasks a web server does to manage websites, including:
+Hosting Websites: Storing and delivering web pages.
+Handling Requests: Processing user requests for pages or files.
+Running Scripts: Executing backend code (e.g., PHP, Python).
+Serving Files: Sending images, videos, or documents.
+Error Management: Showing errors like "404 Not Found."
+Security: Encrypting data (HTTPS) and blocking unauthorized access.
+
+
+*Why Web Servers Are Compromised:
+Weak Passwords: Easy-to-guess credentials.
+Unpatched Software: Outdated server software with vulnerabilities.
+Misconfigurations: Poor settings exposing sensitive areas.
+Malware Uploads: Hackers upload malicious files.
+Brute Force Attacks: Automated guessing of passwords.
+DDoS Attacks: Overloading the server to disrupt services.
+Insecure Code: Vulnerable web applications (e.g., SQL Injection).
+Lack of Monitoring: Delayed detection of attacks.
+ *Web Server Attacks Explained:
+1. DNS Server Hijacking
+What: Redirecting users to fake websites by tampering with DNS settings.
+How: Attackers change DNS records or compromise routers to reroute traffic.
+2. Directory Traversal Attacks
+What: Accessing restricted files on the server.
+How: Exploiting "../" in URLs to navigate outside allowed directories.
+3. Website Defacement
+What: Altering a website's content.
+How: Hackers gain access and modify web pages to display their messages.
+4. Web Server Misconfiguration
+What: Using weak or improper server settings.
+How: Attackers exploit open ports, default passwords, or exposed files.
+5. HTTP Response-Splitting Attack
+What: Splitting HTTP responses to inject malicious headers.
+How: Manipulating input fields (like URLs) to create fake server responses.
+6. Web Cache Poisoning Attack
+What: Storing malicious data in the web cache.
+How: Sending harmful requests that servers mistakenly cache and serve.
+7. SSH Brute Force Attack
+What: Forcing access by guessing SSH passwords.
+How: Automated tools repeatedly try different username-password combinations.
+8. Web Server Password Cracking
+What: Breaking passwords to gain unauthorized access.
+How: Using tools like John the Ripper or Hydra to decode passwords.
+
+
+*Web Server Attack Methodology:
+Information Gathering – Collect data about the target web server, like its IP, domain, and technologies used.
+Web Server Footprinting – Identify specific server details, such as OS, version, and running services, to find potential vulnerabilities.
+Website Mirroring – Download a complete copy of the website locally to analyze its structure and content offline.
+Vulnerability Scanning – Use tools to detect weaknesses in the web server, like outdated software or misconfigurations.
+Session Hijacking – Steal active session tokens to impersonate users and gain unauthorized access.
+Web Server Password Hacking – Crack weak or default passwords to gain control of the web server.
+In essence, attackers gather data, find weak spots, and exploit them to compromise a web server.
+   * Patch Management is the process of identifying, testing, and applying updates (patches) to software or systems to fix bugs, vulnerabilities, or performance issues.
+Key Components:
+Patches – Updates released to fix security vulnerabilities, improve functionality, or resolve bugs in software or operating systems.
+Example: Fixing a bug that allows unauthorized access to a system.
+Hotfixes – Urgent patches released to address critical issues, often applied immediately without waiting for the next update cycle.
+Example: A fix for a zero-day vulnerability being exploited in the wild.
+Installation of a Patch:
+Identification – Detect which patches are needed for your system.
+Testing – Apply patches in a controlled environment to check for compatibility or issues.
+Deployment – Roll out the patch to live systems, ensuring proper backups are in place.
+Verification – Confirm that the patch is applied successfully and resolves the issue
+In short, patch management ensures systems stay secure and functional by addressing flaws and vulnerabilities through timely updates.    *Patch Management Tools ▪ GFI LanGuard Source: https://www.gfi.com  Symantec Client Management Suite https://www.broadcom.com
+Solarwinds Patch Manager https://www.solarwinds.com
+Kaseya Patch Management https://www.kaseya.com
+Software Vulnerability Manager https://www.flexera.com Ivanti Patch for Endpoint Manager https://www.ivanti.com
