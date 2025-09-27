@@ -1,0 +1,122 @@
+*Explain Anatomy of a Mobile Attack ? Anatomy of a Mobile Attack refers to the step-by-step process attackers use to compromise mobile devices and steal data or take control.
+How It Works:
+1. Reconnaissance – Attackers gather information about the target, like apps, network, and OS version.
+2. Delivery – Malware is sent through phishing, malicious apps, or fake Wi-Fi networks.
+3. Exploitation – The device is infected by exploiting vulnerabilities or tricking users into granting permissions.
+4. Installation – Malware installs itself to maintain access, often hiding in system files.
+5. Command & Control (C2) – The attacker remotely controls the device, stealing data, tracking activities, or spreading malware.
+6. Exfiltration & Impact – Sensitive data is stolen, calls/messages are intercepted, or the device is locked for ransom.
+
+
+*Mobile Attack Methods and How They Work:
+* Malware, Virus, and Rootkit – Malicious software infects the device, hides in system files, and grants attackers control.
+* Application Modification – Attackers alter legitimate apps to include malicious code before installation.
+* OS Modification – Exploiting vulnerabilities or modifying the operating system (e.g., jailbreaking) to bypass security.
+Data Exfiltration (Stealing Data):
+* Extracted from data streams and emails – Attackers intercept and steal sensitive information.
+* Print screen & screen scraping – Capturing screen activity to steal passwords or personal info.
+* Copy to USB key & backup loss – Data is copied to external drives or lost due to poor backup security.
+Data Tampering (Altering Data):
+* Modification by another application – Malware changes data within apps without detection.
+* Undetected tamper attempts – Attackers alter files without triggering alerts.
+* Jailbroken device – Security is bypassed, allowing unauthorized app modifications.
+Data Loss (Unintended Exposure):
+* Application vulnerabilities – Weak security allows data leaks or breaches.
+* Unapproved physical access – Someone gains unauthorized control of the device.
+* Loss of device – A stolen or misplaced device exposes sensitive data.
+  * Explain Security Issues Arising from App Stores ?
+Security Issues Arising from App Stores
+1. Malicious Apps – Attackers upload fake or modified apps that steal data or install malware.
+2. Weak App Review Process – Some app stores fail to detect harmful apps before approval.
+3. Permissions Abuse – Apps request excessive permissions, leading to data leaks or spying.
+4. Fake Apps & Clones – Attackers create lookalike apps to trick users into installing malware.
+5. Third-Party App Stores – Unofficial stores often lack security checks, increasing risks.
+6. App Tampering – Legitimate apps are modified and re-uploaded with hidden malware.
+7. Unpatched Vulnerabilities – Some apps contain security flaws that hackers exploit.
+8. Data Privacy Risks – Some apps secretly collect and share user data without consent.
+  *Security Issues Arising from App Stores
+1. Malicious Apps – Attackers upload fake or modified apps that steal data or install malware.
+2. Weak App Review Process – Some app stores fail to detect harmful apps before approval.
+3. Permissions Abuse – Apps request excessive permissions, leading to data leaks or spying.
+4. Fake Apps & Clones – Attackers create lookalike apps to trick users into installing malware.
+5. Third-Party App Stores – Unofficial stores often lack security checks, increasing risks.
+6. App Tampering – Legitimate apps are modified and re-uploaded with hidden malware.
+7. Unpatched Vulnerabilities – Some apps contain security flaws that hackers exploit.
+8. Data Privacy Risks – Some apps secretly collect and share user data without consent.
+ * What is App Sandboxing Issues ?
+App Sandboxing Issues
+App sandboxing is a security feature that isolates apps to prevent unauthorized access to system resources or other apps' data. However, issues arise when:
+1. Improper Isolation – Weak sandboxing allows malicious apps to access sensitive data from other apps.
+2. Privilege Escalation – Attackers exploit flaws to break out of the sandbox and gain full control.
+3. Insecure Inter-App Communication (IAC) – Apps exchange data insecurely, allowing interception or tampering.
+4. Overprivileged Apps – Some apps bypass sandbox restrictions by requesting excessive permissions.
+5. Jailbroken/Rooted Devices – Sandboxing is disabled, making the device vulnerable to malware and unauthorized access.
+ * Explain Mobile Spam ?
+Mobile Spam
+Mobile Spam refers to unwanted messages, calls, or ads sent to mobile users, often for scams, phishing, or malware distribution.
+How It Works:
+1. SMS Spam – Fake promotional texts trick users into clicking malicious links.
+2. Email Spam – Phishing emails target mobile users with fraudulent offers or malware.
+3. App-Based Spam – Malicious apps push excessive ads or steal user data.
+4. Call Spam – Robocalls or scam calls attempt fraud or identity theft.
+5. Bluetooth Spam – Attackers send unsolicited messages using Bluejacking techniques.
+
+*Explain Agent Smith Attack? Agent Smith Attack
+Agent Smith Attack is a mobile malware attack that infects Android devices by replacing legitimate apps with malicious versions to display ads, steal data, or install more malware.
+How It Works:
+1. Infection – The user downloads an infected app from a third-party store.
+2. App Cloning – The malware secretly replaces real apps (like WhatsApp) with infected copies.
+3. Ad Injection & Exploitation – The fake app shows unwanted ads, steals data, or installs more malware.
+4. Persistence – The malware hides and prevents removal, making it hard to detect
+ * What do you mean by Exploiting SS7 Vulnerability ?
+Exploiting SS7 Vulnerability
+Exploiting SS7 Vulnerability means taking advantage of weaknesses in the Signaling System 7 (SS7) protocol to intercept calls, messages, and track a user’s location.
+How It Works:
+1. Intercepting SMS & Calls – Attackers reroute verification codes (e.g., OTPs) to steal accounts.
+2. Location Tracking – Hackers exploit SS7 to find a user’s real-time location.
+3. Call Eavesdropping – Attackers listen to private calls by hijacking the signal routing.
+4. Impersonation Attacks – By spoofing a user’s number, attackers send fake messages or make unauthorized transactions.
+
+*What is Simjacker: SIM Card Attack? Simjacker: SIM Card Attack
+Simjacker is a type of attack that exploits vulnerabilities in the SIM card in mobile phones, allowing attackers to send malicious SMS or commands to take control of the device without the user's knowledge.
+How It Works:
+1. SIM Toolkit – The attack targets the SIM toolkit, a set of instructions stored on the SIM card for managing functions like text messages and call forwarding.
+2. Malicious SMS – An attacker sends a specially crafted message to the victim’s phone, which is processed by the SIM card.
+3. Command Execution – The SIM card executes commands such as tracking the phone's location, sending text messages, or intercepting calls.
+4. No User Interaction – The user does not need to click anything or open any app for the attack to succeed.
+
+
+*Explain OTP Hijacking/Two-Factor Authentication Hijacking ?
+OTP Hijacking / 2FA Hijacking
+OTP Hijacking is when an attacker steals or intercepts a One-Time Password (OTP) or 2FA code to gain unauthorized access.
+How It Works:
+1. Phishing – The attacker tricks you into revealing your OTP.
+2. SIM Swapping – The attacker takes control of your phone number to receive OTPs.
+3. Man-in-the-Middle – The attacker intercepts your OTP during transmission.
+4. Malware – Keyloggers or malicious software capture your OTP.
+  * Explain Camera/Microphone Capture Attacks ?
+Camera/Microphone Capture Attacks involve unauthorized access to your device's camera or microphone, allowing attackers to spy on you.
+How It Works:
+1. Malicious Apps – A harmful app secretly accesses the camera or microphone without your knowledge.
+2. Malware – Once installed, malware uses your camera or mic to monitor your activities or record conversations.
+3. Remote Hacking – Attackers exploit vulnerabilities in your device to activate the camera or microphone remotely.
+  * What is Android Rooting ?
+Android Rooting is the process of gaining administrator-level access (root access) to an Android device, allowing users to bypass restrictions and modify system files.
+How It Works:
+1. Unlocking System – Rooting removes manufacturer-imposed restrictions and gives full control over the system.
+2. Accessing Protected Files – Allows users to alter system settings, install custom ROMs, or remove pre-installed apps.
+3. Security Risks – Rooting bypasses built-in security, making the device vulnerable to malware or attacks.
+ * What is Android Device Tracking Tools: Google Find My Device ?
+Android Device Tracking Tools: Google Find My Device
+Google Find My Device is a tracking tool that helps you locate, lock, or erase data on your Android device remotely if it’s lost or stolen.
+How It Works:
+1. Locate – Tracks the device’s real-time location using GPS or Wi-Fi.
+2. Lock – Allows you to remotely lock the device to prevent unauthorized access.
+3. Erase – Remotely wipes all data to protect your privacy if your device is compromised.
+
+* What is Jailbreaking iOS ?
+Jailbreaking iOS is the process of removing restrictions imposed by Apple on iPhones and iPads, allowing users to gain full control and access to system files.
+How It Works:
+1. Bypass Security – Jailbreaking removes Apple’s built-in security controls and restrictions.
+2. Custom Apps and Mods – It allows the installation of apps or features not available on the App Store, such as custom themes or system tweaks.
+3. Security Risks – Jailbreaking exposes the device to malware and removes important security protections.
