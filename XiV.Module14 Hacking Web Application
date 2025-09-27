@@ -1,0 +1,121 @@
+*What is web application and how web application hacking works ?
+Web Application
+A web application is software accessed through a web browser that performs tasks or provides services online, like social media or e-commerce platforms.
+Web Application Hacking
+Web application hacking exploits weaknesses in the app (e.g., input fields, sessions, or authentication) to steal data, manipulate functions, or take control of the app.
+
+*What is web service and what are the types of web services ?
+Web Service
+A web service is a software system that allows different applications to communicate and exchange data over a network using standard protocols.
+Types of Web Services
+SOAP (Simple Object Access Protocol) – Uses XML for structured messaging and is protocol-heavy.
+REST (Representational State Transfer) – Lightweight, uses standard HTTP methods (GET, POST), and is widely used.
+XML-RPC – Simpler than SOAP, uses XML to encode requests and responses.
+JSON-RPC – Similar to XML-RPC but uses JSON for faster and more readable messaging.
+
+*what are OWASP Top 10 Application Security Risks - 2021?
+OWASP Top 10 Application Security Risks - 2021
+A01: Broken Access Control – Users can perform actions or access data they shouldn’t.
+A02: Cryptographic Failures – Weak or improper encryption exposing sensitive data.
+A03: Injection – Attacker inserts malicious input (e.g., SQL, XSS) into app queries.
+A04: Insecure Design – Poor design choices that don’t prioritize security.
+A05: Security Misconfiguration – Weak settings, default passwords, or exposed endpoints.
+A06: Vulnerable and Outdated Components – Using old libraries or software with known vulnerabilities.
+A07: Identification and Authentication Failures – Weak or broken login and session management.
+A08: Software and Data Integrity Failures – Tampering with software updates or data.
+A09: Security Logging and Monitoring Failures – Lack of logs or failure to detect and respond to threats.
+A10: Server-Side Request Forgery (SSRF) – Attackers trick servers into accessing malicious or unauthorized URLs.
+Easy to recall: Focus on weak access, encryption, input, design, config, outdated code, logins, integrity, logs, and SSRF issues.
+
+*What is command line injection ?
+Command Line Injection
+Command Line Injection occurs when an attacker inserts malicious commands into input fields, tricking the application into executing those commands on the system’s command line.
+Simple Recall: Attackers make the system run harmful commands through inputs it trusts.
+
+* What is File Injection attack?
+File Injection Attack
+A File Injection Attack happens when attackers upload or include malicious files (like scripts) into an application, tricking it into executing or using those files.
+Simple Recall: Attackers sneak harmful files into the system to make it execute their commands.
+
+*What is LDAP injection attack?
+LDAP Injection Attack
+LDAP Injection happens when attackers insert malicious input into LDAP queries, tricking the server into executing unauthorized commands or exposing sensitive data.
+Simple Recall: Attackers manipulate directory lookups to access or change restricted information.
+
+*What is Cross Site Scripting (XSS) Attack?
+Cross-Site Scripting (XSS) Attack
+XSS Attack occurs when attackers inject malicious scripts into web pages, causing those scripts to run in other users' browsers and steal data or hijack sessions.
+Simple Recall: Attackers plant harmful scripts on websites to trick users and steal their data.
+
+*What is unvalidated redirects and forward attack?
+Unvalidated Redirects and Forwards Attack
+This attack occurs when an application blindly redirects or forwards users to untrusted URLs, allowing attackers to trick users into visiting malicious sites or performing harmful actions.
+Simple Recall: Attackers misuse redirects to send users to bad websites.
+
+
+* What is watering Hole attack?
+Watering Hole Attack
+A Watering Hole Attack targets a specific group by compromising websites they frequently visit, injecting malicious code to infect users who access them.
+Simple Recall: Attackers poison favorite sites to trap their targets.
+
+
+** What is Cross Site request Forgery Attack?
+Cross-Site Request Forgery (CSRF) Attack
+A CSRF Attack tricks a user into unknowingly performing actions on a web application where they are authenticated, like changing settings or making transactions, without their consent.
+Simple Recall: Attackers force users to perform actions they didn’t mean to while logged into a website.
+
+* What is cookie session poisoning ?
+Cookie Session Poisoning
+Cookie Session Poisoning happens when an attacker manipulates the session cookie (used to identify users) to impersonate a valid user or escalate privileges.
+Simple Recall: Attackers change cookies to act as someone else or gain extra powers.
+
+* What is hidden manipulation attack?
+Hidden Manipulation Attack
+A Hidden Manipulation Attack occurs when an attacker alters hidden form fields or data that users cannot see, tricking the system into processing malicious or unauthorized actions.
+Simple Recall: Attackers change invisible data to control actions behind the scenes.
+
+*What is Web Application Hacking Methodology Web Application Hacking Methodology
+Footprint Web Infrastructure – Gather information about the web server, domain, and technologies used.
+Analyze Web Applications – Look for vulnerabilities within the web app's functionality and code.
+Bypass Client-Side Controls – Circumvent client-side security measures (like JavaScript validation).
+Attack Authorization Schemes – Exploit flaws in role-based access and permissions.
+Attack Authentication Mechanism – Bypass login mechanisms or steal credentials.
+Attack Access Controls – Exploit weaknesses in controlling who can access specific resources.
+Attack Session Management Mechanism – Hijack or manipulate session data to impersonate users.
+Perform Injection Attacks – Inject harmful data into input fields (like SQL, XSS).
+Attack Application Logic Flaws – Exploit design flaws in the app’s logic to bypass security.
+Attack Shared Environments – Exploit multi-user environments (like shared hosting) to access others' data.
+Attack Web App Client – Target the user's browser to steal data or exploit vulnerabilities.
+Attack Database Connection – Exploit weaknesses in how the app connects to the database, like poor SQL handling.
+Simple Recall: Attackers gather info, exploit app flaws, bypass controls, and inject malicious actions to gain unauthorized access or control.
+
+
+*Analyzing Web Application Tools
+Burp Suite – A powerful tool for web vulnerability scanning, proxying, and testing, used to intercept and analyze web traffic for security flaws.
+Webscrab – A web scraping tool used to extract data from websites and analyze their structure for security weaknesses.
+OWASP ZAP (Zed Attack Proxy) – An open-source security tool for finding vulnerabilities in web applications by scanning and testing live websites.
+httprint – A tool that performs web server fingerprinting by analyzing HTTP headers to identify the server software and version.
+Simple Recall: These tools help attackers find weaknesses in web apps by scanning, testing, and analyzing their traffic and structure.
+
+ **What is application whitelisting and Black listing?
+Application Whitelisting
+Application Whitelisting is a security practice where only approved applications are allowed to run on a system, blocking all others by default.
+Application Blacklisting
+Application Blacklisting is a security method where specific harmful or unapproved applications are blocked from running, but all others are allowed.
+Simple Recall:
+Whitelisting: Only trusted apps are allowed.
+Blacklisting: Known bad apps are blocked.
+ *How to defend against all these web application attacks?
+Defending Against Web Application Attacks:
+Input Validation – Always validate and sanitize user input to prevent injection attacks.
+Authentication and Session Management – Use strong, multi-factor authentication and secure session handling.
+Access Control – Implement strict role-based access control (RBAC) and limit user permissions.
+Use HTTPS – Encrypt data with HTTPS to protect sensitive information during transmission.
+Regular Updates and Patching – Keep your software and libraries up to date to fix vulnerabilities.
+Security Headers – Use security headers (e.g., X-Content-Type-Options, X-XSS-Protection) to protect against XSS and other attacks.
+Limit Exposure – Hide sensitive data (like error messages) from end users and reduce the attack surface.
+Web Application Firewalls (WAF) – Deploy a WAF to filter and monitor traffic for malicious activity.
+Penetration Testing – Regularly test your app using ethical hacking to identify and fix vulnerabilities.
+User Education – Educate users about secure practices, like avoiding phishing or weak passwords.
+Simple Recall: Validate inputs, secure sessions, limit access, encrypt data, patch regularly, and use firewalls to defend against web app attacks.
+
