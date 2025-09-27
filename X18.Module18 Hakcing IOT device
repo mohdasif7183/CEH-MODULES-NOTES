@@ -1,0 +1,41 @@
+ *What is the IoT? IoT (Internet of Things) refers to the network of physical devices (like sensors, vehicles, and home appliances) that are connected to the internet, allowing them to collect and exchange data.
+ * Explain what is IoT Device Hacking?
+IoT Device Hacking
+IoT Device Hacking refers to the exploitation of vulnerabilities in internet-connected devices to gain unauthorized access, control, or steal data from them.
+How It Works:
+1. Weak Passwords – Attackers use default or weak passwords to gain access to IoT devices.
+2. Exploiting Vulnerabilities – Hackers take advantage of security flaws in IoT device software or communication protocols.
+3. Malware Injection – Attackers install malware on the device to control it or use it for malicious purposes.
+ *What is OT?
+OT (Operational Technology)
+OT (Operational Technology) refers to hardware and software used to monitor and control physical processes, operations, and devices in industries like manufacturing, energy, and utilities.
+How It Works:
+1. Industrial Systems – OT is used in machines, sensors, and controllers that operate industrial equipment (e.g., turbines, pumps).
+2. Control & Monitoring – It allows operators to control and monitor systems like power grids, water treatment plants, and factories.
+3. Integration – OT often integrates with IT systems for data analysis and decision-making
+ * Give Introduction to ICS ?
+Introduction to ICS (Industrial Control Systems)
+ICS (Industrial Control Systems) are systems used to monitor and control industrial processes such as manufacturing, production, power generation, and water treatment.
+How It Works:
+1. Components – ICS consists of hardware and software, including SCADA (Supervisory Control and Data Acquisition), PLC (Programmable Logic Controllers), and DCS (Distributed Control Systems).
+2. Control & Automation – These systems automate tasks, monitor data from sensors, and control equipment in real-time to ensure smooth industrial operations.
+3. Remote Monitoring – ICS can be monitored and controlled remotely, allowing operators to make adjustments or troubleshoot issues from afar.
+ * What is Components of an ICS - Distributed Control System (DCS) ? Components of an ICS - Distributed Control System (DCS)
+A Distributed Control System (DCS) is an ICS used to control and automate large-scale industrial processes through multiple distributed controllers.
+Key Components:
+1. Controllers – Processors that execute control functions and manage field devices.
+2. Sensors & Actuators – Sensors collect real-time data, while actuators perform actions (e.g., opening a valve).
+3. Human-Machine Interface (HMI) – A graphical interface for operators to monitor and control processes.
+4. Communication Network – Connects controllers, field devices, and HMIs for real-time data exchange.
+5. Engineering Workstation – Used to configure, monitor, and troubleshoot the DCS system.
+ * What is Components of an ICS - Programmable Logic Controller (PLC) ?
+Components of an ICS - Programmable Logic Controller (PLC)
+A Programmable Logic Controller (PLC) is an industrial computer used to automate processes by controlling machinery and equipment.
+Key Components:
+1. CPU (Central Processing Unit) – Executes control logic and processes input/output signals.
+2. Input Modules – Receive data from sensors (e.g., temperature, pressure, motion).
+3. Output Modules – Send commands to actuators (e.g., motors, valves, lights).
+4. Power Supply – Provides necessary voltage for PLC operation.
+5. Programming Device – Used to configure logic and control instructions.
+6. Communication Interfaces – Enable data exchange with other PLCs, SCADA, or DCS.
+
