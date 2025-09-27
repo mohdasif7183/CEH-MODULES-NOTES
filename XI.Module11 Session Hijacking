@@ -1,0 +1,90 @@
+ * What is Session Hijacking?
+Session Hijacking – An attacker takes over a user’s active session to gain unauthorized access.   * Why is Session Hijacking Successful?
+Session Hijacking is successful because attackers exploit weak session controls or insecure connections to impersonate a user.
+
+
+ * what is Session Hijacking Process ?
+Session Hijacking Process – Involves sniff, monitor, Session Desynchronization , Session ID Prediction , Command Injection.   * what are Types of Session Hijacking ? Passive Session Hijacking Active Session Hijacking?
+Types of Session Hijacking:
+Passive Session Hijacking – Attacker silently monitors and collects data without interfering.
+Active Session Hijacking – Attacker takes control of the session, actively interfering and impersonating the user.
+
+
+ * what is Session Hijacking in OSI Model ? Network-Level Hijacking and Application-Level Hijacking ?
+Session Hijacking in the OSI Model:
+Network-Level Hijacking – Occurs at lower OSI layers (like Network or Transport layers); attackers intercept and control sessions by manipulating data packets.
+Application-Level Hijacking – Happens at the Application layer; attackers target session tokens or cookies in web apps to hijack a user’s session.
+
+
+ * what is session Spoofing vs. Hijacking attack?
+Session Spoofing – Attacker creates a fake session to mimic a legitimate user.
+Session Hijacking – Attacker takes over an existing, active session of a legitimate user.
+
+
+ * what is the Compromising Session IDs using Sniffing and by Predicting Session Token ?
+Compromising Session IDs:
+Using Sniffing – Attacker captures session IDs by intercepting network traffic, especially on unencrypted connections.
+By Predicting Session Token – Attacker guesses weak or sequential session tokens to access a user’s session.
+
+
+ * How attackers Captures and Predict a Session Token ?
+Capturing a Session Token: The attacker uses tools to “listen” to network traffic (like eavesdropping on conversations) to grab session tokens as they’re sent from a user’s device to the server, especially if the connection isn’t secure.
+Predicting a Session Token: If the session tokens are weak or follow a predictable pattern (like numbers or simple strings), the attacker can guess the next token, just like guessing the next number in a sequence. They might try common combinations or brute-force guesses to find a valid token.
+
+
+ * what is Compromising Session IDs Using Client-side Attacks ? Cross-Site Scripting (XSS) Malicious JavaScript Codes Trojans ? Compromising Session IDs Using Client-side Attacks:
+Cross-Site Scripting (XSS) – Attacker injects malicious scripts into a website. When a user visits the site, the script steals their session ID, sending it back to the attacker.
+Malicious JavaScript Codes – Similar to XSS, attacker uses JavaScript to steal session cookies or tokens from a user’s browser, allowing the attacker to hijack the session.
+Trojans – Malware that infects a user's system, often stealing session tokens by monitoring the system or intercepting web traffic. The attacker then uses the stolen session ID to impersonate the user.
+
+
+ * what is Session Hijacking Using Proxy Servers ?
+Session Hijacking Using Proxy Servers – The attacker sets up a fake proxy server that intercepts and relays the user's communication, capturing session tokens or IDs in the process, allowing the attacker to take over the session.
+
+
+ * what is Network-Level Session Hijacking ? And explain the Blind hijacking UDP hijacking TCP/IP hijacking 6 8 7 RST hijacking Man-in-the-middle: Packet sniffer IP spoofing: Source routed packets ? Network-Level Session Hijacking – Involves intercepting and taking over sessions by manipulating network packets at lower layers of the OSI model (such as the Network or Transport layers).
+Here’s a breakdown of the different types:
+Blind Hijacking – Attacker takes over a session without knowing the full communication details, relying on guessing or injecting packets into the communication stream.
+UDP Hijacking – Attacker takes control of a session by sending fake UDP packets, exploiting the connectionless nature of UDP where no session validation occurs.
+TCP/IP Hijacking – Attacker intercepts and manipulates the TCP connection by predicting sequence numbers or injecting malicious packets to take control of the session.
+RST Hijacking – Attacker sends a forged TCP Reset (RST) packet to interrupt or close an active connection, causing a session to be terminated or hijacked.
+Man-in-the-Middle (MITM) – The attacker intercepts and possibly alters communication between two parties, without their knowledge, often using packet sniffing tools.
+IP Spoofing – Attacker sends packets with a fake source IP address, tricking the target into thinking they’re receiving data from a trusted source, enabling the attacker to hijack the session.
+
+
+
+ * Session Hijacking Tools ?
+OWASP ZAP  Source: https://www.zaproxy.org
+Burp Suite https://portswigger.net
+netool toolkit https://sourceforge.net
+WebSploit Framework https://sourceforge.net
+sslstrip https://pypi.python.org
+JHijack https://sourceforge.net
+
+
+ * what are the best counter measure that can be taken against session Hijacking ?
+Best Countermeasures Against Session Hijacking:
+Use HTTPS – Always use SSL/TLS encryption to protect session IDs from being intercepted during transmission.
+Secure Session Tokens – Use strong, random session tokens and rotate them regularly.
+Implement Session Expiry – Set session timeouts to automatically log users out after a period of inactivity.
+Two-Factor Authentication (2FA) – Require an additional layer of verification (like a code sent to a mobile device) to access sensitive sessions.
+HttpOnly & Secure Cookies – Use these flags to prevent session cookies from being accessed via JavaScript or transmitted over unsecured channels.
+IP Address & Device Binding – Bind sessions to specific IP addresses or devices to prevent session hijacking from other sources.
+Monitor and Detect Suspicious Activity – Implement logging and anomaly detection systems to track and respond to unusual login patterns.
+Use Session Tokens for Each Request – Ensure each request requires a unique token, preventing an attacker from replaying a hijacked session.
+
+
+
+ * what is the IPsec and it's components and benefits?
+IPsec (Internet Protocol Security) – A framework of protocols designed to secure communications over IP networks by authenticating and encrypting each IP packet in a communication session.
+Components of IPsec:
+Authentication Header (AH) – Provides data integrity and authentication by ensuring the data hasn’t been tampered with during transmission.
+Encapsulating Security Payload (ESP) – Provides encryption for confidentiality and optional authentication, ensuring the data is unreadable to unauthorized users.
+Security Associations (SA) – Defines the parameters for communication between two devices, like encryption methods and keys.
+Key Management Protocol (IKE) – Used to establish and manage keys for IPsec connections. It handles the negotiation and establishment of secure connections.
+Benefits of IPsec:
+Confidentiality – Encrypts data to ensure that only authorized users can read it.
+Integrity – Ensures data hasn’t been altered during transmission.
+Authentication – Verifies the identity of the communicating parties to prevent impersonation.
+Anti-Replay Protection – Prevents attackers from intercepting and replaying valid data packets.
+Secure Communication – Provides a secure tunnel for data to travel over insecure networks like the internet. 
