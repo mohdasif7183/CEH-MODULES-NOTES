@@ -1,0 +1,193 @@
+Wireless Terminology - Short Notes**
+1. **GSM**: Global system for mobile communication; used worldwide for wireless networks.
+2. **Bandwidth**: Amount of data that can be transmitted over a connection.
+3. **Access Point (AP)**: Connects wireless devices to a network.
+4. **BSSID**: MAC address of an AP in a Basic Service Set (BSS).
+5. **ISM Band**: Frequencies reserved for industrial, scientific, and medical use.
+6. **Hotspot**: Public place with wireless network access.
+7. **Association**: Connecting a wireless device to an AP.
+8. **SSID**: Unique 32-character name for a wireless network.
+9. **OFDM**: Encodes digital data on multiple carrier frequencies.
+10. **MIMO-OFDM**: Used in 4G/5G for faster wireless communication.
+11. **DSSS**: Spreads data using a pseudo-random noise code.
+12. **FHSS**: Transmits data by rapidly switching frequencies.
+
+
+
+*What is  Wireless Networks and how many type of wireless network are there?
+A wireless network allows devices to connect and communicate without physical cables, using radio waves or infrared signals.
+
+*Types of Wireless Networks**  
+1. **WPAN (Wireless Personal Area Network)**:  
+   - Short-range (e.g., Bluetooth, Zigbee).  
+   - Used for connecting devices like headphones, smartwatches.  
+
+2. **WLAN (Wireless Local Area Network)**:  
+   - Medium-range (e.g., Wi-Fi).  
+   - Used in homes, offices, and public hotspots.  
+
+3. **WMAN (Wireless Metropolitan Area Network)**:  
+   - Covers a city or campus (e.g., WiMAX).  
+   - Provides internet access over a larger area.  v
+
+4. **WWAN (Wireless Wide Area Network)**:  
+   - Long-range (e.g., 4G, 5G).  
+   - Used for mobile communication over large areas.  
+
+
+ *What is Wi-Fi Authentication Modes ?
+Wi-Fi authentication ensures only authorized users can access the network. Here are the main modes:
+Open Authentication:
+No password required.
+Example: Public Wi-Fi hotspots.
+Shared Key Authentication (WEP):
+Uses a pre-shared key (PSK) for authentication.
+Weak security; easily cracked.
+WPA/WPA2-PSK (Pre-Shared Key):
+Stronger encryption (AES).
+Requires a password for access.
+WPA/WPA2-Enterprise:
+Uses a RADIUS server for authentication.
+Each user has unique credentials (e.g., username/password).
+802.1X Authentication:
+Used in enterprise networks.
+Combines EAP (Extensible Authentication Protocol) with RADIUS.    * What is Wi-Fi Authentication Process Using a Centralized Authentication Server?
+This process uses a RADIUS server for secure authentication, commonly in enterprise networks.
+
+Steps:
+Client Request:
+The user device (client) sends a connection request to the Access Point (AP).
+AP Forwarding:
+The AP forwards the request to the RADIUS server.
+RADIUS Server Verification:
+The server checks the user’s credentials (e.g., username/password) against its database.
+Authentication Method:
+Uses EAP (Extensible Authentication Protocol) for secure communication.
+Common EAP types: EAP-TLS, PEAP, EAP-TTLS.
+Access Granted/Denied:
+If credentials are valid, the server sends an "access accept" message to the AP.
+If invalid, the server sends an "access reject" message.
+Connection Established:
+The AP allows the client to connect to the network.
+
+
+ * What are the types of wireless antenna are present? Directional Antenna:
+Focuses signal in one direction.
+Used for long-distance communication (e.g., point-to-point links).
+Omnidirectional Antenna:
+Radiates signal in 360 degrees.
+Ideal for covering large areas (e.g., Wi-Fi routers).
+Parabolic Grid Antenna:
+Dish-like design; focuses signals in one direction.
+Can pick up signals from 10+ miles away.
+Yagi Antenna:
+Unidirectional; used for TV, radio, and Wi-Fi.
+Works in 10 MHz to UHF/VHF ranges.
+Dipole Antenna:
+Bidirectional; supports client connections.
+Commonly used in home Wi-Fi setups.
+Reflector Antennas:
+Uses a reflector to focus signals in one direction.
+Enhances signal strength and range.
+
+*What is Wired Equivalent Privacy (WEP) Encryption?
+WEP (Wired Equivalent Privacy)
+What: Old Wi-Fi encryption using RC4 with 40/104-bit keys.
+How: Encrypts data with a static key.
+Weaknesses:
+Static keys → easy to crack.
+IV reuse → vulnerable to attacks.
+Status: Insecure; use WPA2/WPA3 instead.
+
+
+
+*What is Wi-Fi Protected Access (WPA) Encryption?
+WPA (Wi-Fi Protected Access) - Short & Simple
+What: Improved Wi-Fi encryption to fix WEP flaws.
+Types:
+WPA-PSK: Uses a pre-shared key (password).
+WPA-Enterprise: Uses a RADIUS server for authentication.
+Encryption: Uses TKIP (temporary fix) or AES (stronger).
+Why Better:
+Dynamic keys → harder to crack.
+Better integrity checks.
+Status: Safer than WEP, but WPA2/WPA3 is even better.
+
+
+* What is WPA3 Encryption?
+What: Latest Wi-Fi encryption, replacing WPA2.
+Key Features:
+Stronger Encryption: Uses 192-bit AES (enterprise) and 128-bit AES (personal).
+Forward Secrecy: Prevents old data from being decrypted if the password is hacked.
+Brute-Force Protection: Protects against password-guessing attacks.
+Simplified Setup: Uses Wi-Fi Easy Connect for IoT devices.
+Why Better:
+Fixes WPA2 vulnerabilities (e.g., KRACK attacks).
+More secure for personal and enterprise networks.
+Status: Most secure option for Wi-Fi.
+
+
+*What is Rogue AP Attack?
+What: An attacker sets up a fake Wi-Fi Access Point (AP) to trick users into connecting.
+How It Works:
+The rogue AP mimics a legitimate network (e.g., "Free Wi-Fi" or your office network).
+Users connect, and the attacker intercepts their data.
+Purpose:
+Steal sensitive info (passwords, credit card details).
+Launch further attacks (e.g., Man-in-the-Middle).
+
+* What is Client Mis-association ?
+Client mis-association happens when a wireless device connects to a rogue or unintended access point instead of the legitimate one. This occurs when an attacker sets up a fake access point (evil twin) or when the device auto-connects to an open network. Once connected, the attacker can intercept data, steal credentials, or launch attacks.
+
+* What is Misconfigured AP Attack ?
+A Misconfigured AP Attack happens when an access point (AP) is set up with weak security settings, like using default passwords, open authentication, or outdated encryption (WEP). Attackers exploit these weaknesses to gain unauthorized access, intercept data, or launch further attacks.
+Example:
+A company sets up a Wi-Fi network but forgets to change the default admin password. An attacker logs in, changes settings, and takes control of the network.
+
+* What is Unauthorized Association attack ?
+An Unauthorized Association Attack happens when a device connects to a malicious or unauthorized access point, allowing attackers to intercept data or gain network access. This often happens through rogue APs or soft APs (like Wi-Fi sharing from an infected device).
+Example:
+An attacker sets up a Wi-Fi hotspot named “Office_WiFi_Free.” Employees connect, thinking it's safe, but the attacker captures their login credentials.
+
+* What is Ad-Hoc Connection Attack ?
+An Ad-Hoc Connection Attack happens when two devices connect directly to each other without using a router or access point, often leaving security gaps. Attackers can use this to steal data or spread malware.
+Example:
+Imagine your phone and laptop connect directly to each other without a Wi-Fi router. An attacker can hijack this connection to steal info or harm your device.
+
+* What is Honeypot AP Attack ?
+A Honeypot AP Attack is when an attacker sets up a fake Wi-Fi access point (AP) that looks legitimate, tricking users into connecting to it. Once connected, the attacker can intercept data, steal credentials, or monitor activity.
+Example:
+An attacker sets up a Wi-Fi network named "Airport_WiFi." People think it’s the real airport Wi-Fi, connect to it, and the attacker can capture their personal data or login credentials.
+
+
+* What is AP MAC Spoofing ?
+AP MAC Spoofing is when an attacker changes the MAC address of their access point (AP) to impersonate a legitimate one. This tricks devices into connecting to the attacker’s AP instead of the real one, allowing them to intercept data or launch attacks.
+Example:
+An attacker changes their AP's MAC address to match a trusted router's MAC. Devices automatically connect, thinking it's the trusted router, and the attacker can now steal information.
+
+* What is Denial-of-Service Attack ?
+A Denial-of-Service (DoS) attack floods a target system, like a website or server, with too much traffic, making it slow down or crash, preventing legitimate users from accessing it. It works by sending massive amounts of data or requests to overwhelm the system, often exploiting weaknesses or flaws in the system’s ability to handle large amounts of traffic.
+
+* What is Jamming Signal Attack ?
+A Jamming Signal Attack targets wireless communication by sending noise or fake signals to block or weaken the communication between devices. It works by flooding the same frequency that the target system uses, causing disruption and making it unable to receive or send data properly. This can affect Wi-Fi, GPS, or other wireless networks.
+
+* What is Wi-Fi Discovery: Wireless Network Footprinting ?
+Wi-Fi Discovery: Wireless Network Footprinting is the process of gathering information about nearby wireless networks by scanning for their signals, names (SSIDs), and other details. It works by detecting and mapping networks in range, revealing useful data like their strength, type, and security settings, which can help attackers identify vulnerabilities or targets for further exploitation.
+
+* What is Choosing the Optimal Wi-Fi Card ?
+Choosing the Optimal Wi-Fi Card means selecting the best wireless network card based on factors like signal strength, compatibility, speed, and range. It works by matching the card’s capabilities with the needs of the network, ensuring stable and efficient connection for tasks like scanning networks or cracking Wi-Fi passwords.
+
+Bluetooth Hacking is exploiting vulnerabilities in Bluetooth to access, steal, or manipulate data from Bluetooth-enabled devices.
+Bluetooth Attacks and How They Work:
+Bluesmacking – DoS attack that floods Bluetooth devices with random packets, causing crashes.
+Bluejacking – Sending unsolicited messages to Bluetooth-enabled devices like phones and laptops.
+Bluesnarfing – Stealing data from a Bluetooth device without the owner's permission.
+BlueSniff – Scanning and locating Bluetooth devices using wardriving tools.
+Bluebugging – Remotely accessing a Bluetooth device to control its features.
+Advanced Bluetooth Exploits:
+BluePrinting – Collecting info about a device like manufacturer, model, and firmware version.
+Btlejacking – Intercepting and bypassing security in BLE (Bluetooth Low Energy) devices.
+KNOB Attack – Exploiting Bluetooth encryption flaws to eavesdrop on data like keystrokes or chats.
+MAC Spoofing Attack – Changing a Bluetooth device’s MAC address to impersonate another device.
+Man-in-the-Middle Attack – Intercepting and modifying data between devices communicating in a Piconet.
+
